@@ -31,20 +31,20 @@ class Menumaster extends CI_Controller {
 	public function index()
 	{
 		$data ['unsur_kegiatan']=$this->unsur_model->getUnsur();
-		$this->load->view('atribut/header');
+		$this->load->view('atribut/headeradmin');
 		$this->load->view('admin/menumaster/unsur',$data);
 		$this->load->view('atribut/footer');
 	}
 	public function indexa()
 	{
 		$data ['sub_kegiatan']=$this->subkegiatan_model->getSubkegiatan();
-		$this->load->view('atribut/header');
+		$this->load->view('atribut/headeradmin');
 		$this->load->view('admin/menumaster/subkegiatan',$data);
 		$this->load->view('atribut/footer');
 	}
 	public function indexb()
 	{
-		$this->load->view('atribut/header');
+		$this->load->view('atribut/headeradmin');
 		$this->load->view('admin/menumaster/uraian');
 		$this->load->view('atribut/footer');
 	}
@@ -60,7 +60,7 @@ class Menumaster extends CI_Controller {
 	
 	public function getUnsur($id)
 	{
-		$data['pendidikan']=$this->unsur_model->getUnsur($id)->row();
+		$data['pendidikan']=$this->unsur_model->getUnsur_id($id)->row();
 		$this->load->view('atribut/header');
 		$this->load->view('admin/menumaster/editunsur',$data);
 		$this->load->view('atribut/footer');

@@ -6,39 +6,13 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Unsur Kegiatan</li>
       </ol>
-    </section>
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" method="POST" action="<?php echo base_url('admin/Menumaster/addunsur')?>">
-              <div class="box-body">
-                <div class="form-group">
-                  <label>Nama Unsur</label>
-                  <input type="text" class="form-control" placeholder="Masukkan Unsur Kegiatan" name="txt_unsur">
-                </div>
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    
+    </section>    
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <div class="box-header withborder">
+              <button data-toggle="modal" data-target="#tambahUnsur" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur</button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -58,7 +32,7 @@
                   <td><?php echo $unsur['nama_unsur'];?></td>
                   <td><?php echo $unsur['kategori']?></td>
                   <td>
-                    <a href="<?php echo base_url('admin/Menumaster/tambahsub/').$unsur['id_unsur']?>" class="btn btn-xs btn-success"><i class="fa fa-level-down"></i> Tambah Sub Kegiatan </a>
+                    <a href="<?php echo base_url('admin/Kegiatan/subunsur/').$unsur['id_unsur']?>" class="btn btn-xs btn-success"><i class="fa fa-level-down"></i> Tambah Sub Kegiatan </a>
 
                     <a href="<?php echo base_url('admin/Menumaster/getUnsur/').$unsur['id_unsur']?>" class="btn btn-warning btn-xs btn_edit_personil"><span class="fa fa-pencil"></span> Edit </a>
                     <a href="<?php echo base_url('admin/Menumaster/deleteUnsur/').$unsur['id_unsur']?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin akan menghapus data?');"><span class="fa fa-trash"></span> Hapus </a>
@@ -74,4 +48,29 @@
         </div>
       </div>
     </section>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="tambahUnsur">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title">Tambah Unsur</h2>
+      </div>
+      <div class="modal-body">
+                    <form role="form" method="POST" action="<?php echo base_url('admin/Menumaster/addunsur')?>">
+              <div class="box-body">
+                <div class="form-group">
+                  <label>Nama Unsur</label>
+                  <input type="text" class="form-control" placeholder="Masukkan Unsur Kegiatan" name="txt_unsur">
+                </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+              </div>
+            </form>
+      </div>
+      </div>
+    </div>
   </div>

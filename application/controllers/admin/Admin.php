@@ -20,19 +20,19 @@ class Admin extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('atribut/header');
-		$this->load->view('pages/profil');
+		$this->load->view('atribut/headeradmin');
+		$this->load->view('admin/main');
 		$this->load->view('atribut/footer');
 	}
 	public function edit()
 	{
-		$this->load->view('atribut/header');
+		$this->load->view('atribut/headeradmin');
 		$this->load->view('pages/editprofil');
 		$this->load->view('atribut/footer');
 	}
 	public function ubah()
 	{
-		$this->load->view('atribut/header');
+		$this->load->view('atribut/headeradmin');
 		$this->load->view('pages/ubahpass');
 		$this->load->view('atribut/footer');
 	}

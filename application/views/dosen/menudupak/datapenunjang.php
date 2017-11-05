@@ -28,7 +28,10 @@
                   <th>Kegiatan</th>
                   <th>Tingkat/Kedudukan</th>
                   <th>Tempat</th>
-                  <th>Tanggal</th>
+                  <th>Tanggal</th><th>Satuan Hasil</th>
+                  <th>Jumlah Volume Kegiatan</th>
+                  <th>Angka Kredit</th>
+                  <th>Jumlah Angka Kredit</th>
                   <th>File</th>
                   <th>Aksi</th>
                 </tr>
@@ -44,6 +47,10 @@
                   <td><?php echo $pend['tingkat'];?></td>
                   <td><?php echo $pend['tempat'];?></td>
                   <td><?php echo $pend['tanggal'];?></td>
+                  <td><?php echo $pend['satuan_hasil'];?></td>
+                  <td><?php echo $pend['jumlah_volume'];?></td>
+                  <td><?php echo $pend['angka_kredit'];?></td>
+                  <td><?php echo $pend['jumlah_ak'];?></td>
                   <td></td> 
                   <td>
                     <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
@@ -51,7 +58,7 @@
                   </td>
 
                 </tr>
-                
+                <?php endforeach;?>
                 </tbody>
                 </table>
             </div>
@@ -59,6 +66,4 @@
         </div>
       </div>
     </section>
-
-          
-          
+  </div>

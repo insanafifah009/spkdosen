@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kategoripenunjang extends CI_Controller {
+class InputDosen extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,7 +21,14 @@ class Kategoripenunjang extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('atribut/header');
-		$this->load->view('datamasteradmin/kategoripenunjang');
+		$this->load->view('dosen/data');
 		$this->load->view('atribut/footer');
 	}
+	public function edit()
+	{
+		$this->load->view('atribut/header');
+		$this->load->view('dosen/editprofil');
+		$this->load->view('atribut/footer');
+	}
+	
 }

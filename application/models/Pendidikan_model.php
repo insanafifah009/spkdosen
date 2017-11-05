@@ -51,25 +51,25 @@ class Pendidikan_model extends CI_model
 		$query =$this->db->query('SELECT * FROM pendidikan JOIN unsur_kegiatan ON pendidikan.`unsur`=unsur_kegiatan.`id_unsur` JOIN sub_kegiatan ON pendidikan.`sub`=sub_kegiatan.`id_sub` JOIN `uraian_kegiatan` ON pendidikan.`uraian`=`uraian_kegiatan`.`id_uraian` JOIN dosen ON pendidikan.`id_dosen`=dosen.`id_dosen`');
 		return $query->result_array();
 	}
-	// public function editUnsur($tabel,$data,$param){
-	// 	$this->db->where('id_unsur',$param);
-	// 	$this->db->update($tabel,$data);
-	// 	if ($this->db->affected_rows() > 0){
-	// 		return true;
-	// 	}else{
-	// 		return false;
-	// 	}
-	// }
-	// public function deleteUnsur($id){
-	// 	$this->db->where('id_unsur',$id);
-	// 	$this->db->delete('unsur_kegiatan');
-	// 	if ($this->db->affected_rows() > 0){
-	// 		return TRUE;
-	// 	}
-	// 	else{
-	// 		return FALSE;
-	// 	}
-	// }
+	public function editPendidikan($tabel,$data,$param){
+		$this->db->where('id_pendidikan',$param);
+		$this->db->update($tabel,$data);
+		if ($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function deletePendidikan($id){
+		$this->db->where('id_pendidikan',$id);
+		$this->db->delete('pendidikan');
+		if ($this->db->affected_rows() > 0){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
 }
 
 

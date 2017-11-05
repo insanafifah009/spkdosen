@@ -57,6 +57,30 @@
                    <input type="date" name="txt_tgl" id="exampleInputFile" class="form-control">
                    </div>
               </div>
+              <div class="form-group required">
+                   <label class="col-sm-2">Satuan Hasil</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_satuan" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group required">
+                   <label class="col-sm-2">Jumlah Volume Kegiatan</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_jumlahv" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_ak" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Jumlah Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_jumlahak" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
               <div class="form-group">
                    <label class="col-sm-2">Lampiran SK</label>
                    <div class="col-md-12">
@@ -103,6 +127,21 @@
                 });
 
                 $("#cb_detail").change(function() {
+                var nilai = $(this).val();
+                if (nilai > 0){
+                  $.ajax({
+                    data: {
+                      modul: 'sub',
+                      id: nilai
+                    },
+                    success: function(respond)
+                    {
+                      $("#cb_uraian").html(respond);
+                    }
+                    })
+                  }
+                });
+                $("#cb_uraian").change(function() {
                 var nilai = $(this).val();
                 if (nilai > 0){
                   $.ajax({

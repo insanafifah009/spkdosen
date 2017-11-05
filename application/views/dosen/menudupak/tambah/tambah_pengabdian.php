@@ -18,18 +18,12 @@
             <!-- form start -->
             <form method="POST" action="<?php echo base_url('dosen/Menudupak/addKegiatan')?>">
               <div class="box-body">
-                <div class="form-group required">
-                   <label class="col-sm-2">NIP/NIDN Dosen</label>
-                   <div class="col-md-12">
-                   <input type="text" class="form-control" placeholder="Masukkan NIP/NIDN" name="txt_nip" value="<?php echo $this->session->userdata('nip') ?>" readonly>
-                   </div>
-              </div>
                 <div class="form-group">
                   <label class="col-sm-4" for=""> Unsur Kegiatan Pengabdian</label>
                   <div class="col-md-12">
                   <select class="form-control" name="cb_unsur" id="cb_unsur">
                     <option value="">Pilih Unsur</option>
-                    <?php foreach ($penelitian as $tes):?>
+                    <?php foreach ($pengabdoian as $tes):?>
                       <option value="<?php echo $tes['id_unsur']?>"> <?php echo $tes ['nama_unsur']?> </option>
                     <?php endforeach ?>
                   </select>
@@ -74,32 +68,55 @@
                    <div class="col-md-12">
                    <input type="text" id="t" class="form-control" placeholder="Tanggal Pengabdian" name="txt_tgl">
                    </div>
+              </div><div class="form-group required">
+                   <label class="col-sm-2">Satuan Hasil</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_satuan" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group required">
+                   <label class="col-sm-2">Jumlah Volume Kegiatan</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_jumlahv" id="exampleInputFile" class="form-control">
+                   </div>
               </div>
               <div class="form-group">
-                   <label class="col-sm-2" for="exampleInputFile">Lampiran SK</label>
-                  <input type="file" id="exampleInputFile" name="txt_lamp">
+                   <label class="col-sm-2">Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_ak" id="exampleInputFile" class="form-control">
+                   </div>
               </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Jumlah Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_jumlahak" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Lampiran SK</label>
+                   <div class="col-md-12">
+                     <input type="file" id="t" name="txt_lamp">
+                   </div>
+              </div>
+          </div>
+
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
+            
           </form>
         </div>
       </div>
     </div>
-    </section>
-  
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+  </section>
+
+</div>
     <!-- /.box -->
           <script type="text/javascript">
             $(document).ready(function(){
                 $.ajaxSetup({
                 type : "POST",
-                url : "<?php echo base_url("menudupak/get_unsur_pengabdian");
+                url : "<?php echo base_url("dosen/menudupak/get_unsur_pengabdian");
                 ?>",
                 chace: false,
               });
@@ -109,7 +126,7 @@
                 if (nilai > 0){
                   $.ajax({
                     data: {
-                      modul: 'unsur_kegiatan',
+                      modul: 'unsur',
                       id: nilai
                     },
                     success: function(respond)
@@ -119,12 +136,13 @@
                     })
                   }
                 });
+
                 $("#cb_detail").change(function() {
                 var nilai = $(this).val();
                 if (nilai > 0){
                   $.ajax({
                     data: {
-                      modul: 'uraian_kegiatan',
+                      modul: 'uraian',
                       id: nilai
                     },
                     success: function(respond)
@@ -134,5 +152,6 @@
                     })
                   }
                 });
-        });
-      </script>
+
+            });
+          </script>

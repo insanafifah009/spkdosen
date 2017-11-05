@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Dosen
+        Data Diri
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -12,6 +12,16 @@
 
 
     <!-- Main content -->
+    <div class="col-md-3">
+  <form id="formphoto">
+      <div class="thumbnail">                        
+        <img src="img/work.png">
+        <span id="tukarphoto" style="margin-top: 5px" class="btn btn-link">Ganti Foto Profil</span>
+        <input type="file" name="file" id="file" style="display: none;"/>
+      </div>
+    </form>
+</div>
+
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
@@ -24,24 +34,16 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Foto</th>
                   <th>Nama</th>
-                  <th>TTL</th>
-                  <th>NIP/th>
-                  <th>Tgl Masuk</th>
-                  <th>Pangkat/Golongan</th>
-                  <th>Pendidikan</th>
-                  <th>Fungsional</th>
-                  <th>Jurusan</th>
+                  <th>NIP</th>
+                  <th>Pangkat/Golongan Ruang</th>
+                  <th>Jabatan Fungsional</th>
+                  <th>Unit Kerja</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>

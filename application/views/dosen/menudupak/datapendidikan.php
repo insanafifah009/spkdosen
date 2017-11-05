@@ -30,6 +30,10 @@
                   <th>Uraian Kegiatan</th>
                   <th>Tempat/Instansi</th>
                   <th>Tanggal</th>
+                  <th>Satuan Hasil</th>
+                  <th>Jumlah Volume Kegiatan</th>
+                  <th>Angka Kredit</th>
+                  <th>Jumlah Angka Kredit</th>
                   <th>File</th>
                   <th>Aksi</th>
                 </tr>
@@ -44,10 +48,14 @@
                   <td><?php echo $pend['nama_uraian'];?></td>
                   <td><?php echo $pend['tempat'];?></td>
                   <td><?php echo $pend['tanggal'];?></td>
+                  <td><?php echo $pend['satuan_hasil'];?></td>
+                  <td><?php echo $pend['jumlah_volume'];?></td>
+                  <td><?php echo $pend['angka_kredit'];?></td>
+                  <td><?php echo $pend['jumlah_ak'];?></td>
                   <td></td> 
                   <td>
-                    <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
-                    <a href="" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>
+                     <a href="<?php echo base_url('dosen/Menudupak/getTempat/').$pendidikan['id_pendidikan']?>" class="btn btn-warning btn-xs btn_edit_personil"><span class="fa fa-pencil"></span> Edit </a>
+                    <a href="<?php echo base_url('dosen/Menudupak/deletePendidikan/').$pendidikan['id_pendidikan']?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin akan menghapus data?');"><span class="fa fa-trash"></span> Hapus </a>
                   </td>
 
                 </tr>

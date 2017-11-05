@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.33 (64 bit)
 MySQL - 5.6.21 : Database - spkdosen
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -130,7 +131,7 @@ CREATE TABLE `penelitian` (
   `unsur` int(50) DEFAULT NULL,
   `sub` int(50) DEFAULT NULL,
   `uraian` int(50) DEFAULT NULL,
-  `judul` int(50) DEFAULT NULL,
+  `judul` varchar(50) DEFAULT NULL,
   `link` text,
   `lampiran` text,
   PRIMARY KEY (`id_penelitian`),

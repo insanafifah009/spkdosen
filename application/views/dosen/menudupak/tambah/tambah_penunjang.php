@@ -76,40 +76,64 @@
                    <input type="text" id="t" class="form-control" placeholder="Tanggal" name="txt_tgl">
                    </div>
               </div>
-              <div class="form-group">
-                   <label class="col-sm-2" for="exampleInputFile">Lampiran SK</label>
-                  <input type="file" id="exampleInputFile" name="txt_lamp">
+              <div class="form-group required">
+                   <label class="col-sm-2">Satuan Hasil</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_satuan" id="exampleInputFile" class="form-control">
+                   </div>
               </div>
+              <div class="form-group required">
+                   <label class="col-sm-2">Jumlah Volume Kegiatan</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_jumlahv" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_ak" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Jumlah Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_jumlahak" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Lampiran SK</label>
+                   <div class="col-md-12">
+                     <input type="file" id="t" name="txt_lamp">
+                   </div>
+              </div>
+          </div>
+
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
+            
           </form>
         </div>
       </div>
     </div>
   </section>
-  
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+
+</div>
     <script type="text/javascript">
             $(document).ready(function(){
               $.ajaxSetup({
                 type : "POST",
-                url : "<?php echo base_url("menudupak/get_unsur_penunjang");
+                url : "<?php echo base_url("dosen/menudupak/get_unsur_penunjang");
                 ?>",
                 chace: false,
               });
 
-              $("#cb_unsur").change(function() {
+               $("#cb_unsur").change(function() {
                 var nilai = $(this).val();
                 if (nilai > 0){
                   $.ajax({
                     data: {
-                      modul: 'unsur_kegiatan',
+                      modul: 'unsur',
                       id: nilai
                     },
                     success: function(respond)
@@ -125,7 +149,7 @@
                 if (nilai > 0){
                   $.ajax({
                     data: {
-                      modul: 'uraian_kegiatan',
+                      modul: 'uraian',
                       id: nilai
                     },
                     success: function(respond)
@@ -138,5 +162,3 @@
 
             });
           </script>
-
-              </div>

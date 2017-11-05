@@ -130,26 +130,34 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">DOSEN</li>
-        <li class="treeview">
+        <!-- <li class="treeview">
           <a href="<?php echo base_url('C_index'); ?> ">
             <i class="fa fa-dashboard"></i> <span>Beranda</span>
           </a>
-        </li>
+        </li> -->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-share"></i> <span>Profil</span>
+            <i class="fa fa-share"></i> <span>Profil Dosen</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('admin/Admin') ?>"><i class="fa fa-circle-o"></i> Profil </a></li>
-            <li><a href="<?php echo base_url('admin/Admin/edit') ?>"><i class="fa fa-circle-o"></i> Edit Profil </a></li>
-            <li><a href="<?php echo base_url('admin/Admin/ubah') ?>"><i class="fa fa-circle-o"></i> Ubah Password </a></li>
+            <li><a href="<?php echo base_url('dosen/InputDosen') ?>"><i class="fa fa-circle-o"></i> Profil </a></li>
+            <li><a href="<?php echo base_url('dosen/InputDosen/edit') ?>"><i class="fa fa-circle-o"></i> Edit Profil </a></li>
           </ul>
         </li>
 
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Reviewer</span>
+          </a>
+        </li>
+       
+
      <!-- PUNYA DOSEN -->
+
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Menu Dupak</span>
@@ -166,28 +174,24 @@
           </ul>
         </li>
 
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Lihat Angka Kredit</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('LihatAK') ?>"><i class="fa fa-circle-o"></i>Lihat Angka Kredit</a></li>
-          </ul>
-        </li>
 
      <!-- PUNYA DOSEN -->
 
-        <ul class="sidebar-menu">
+        <!-- <ul class="sidebar-menu">
         <li class="header">ADMIN</li>
         <li class="treeview"></li>
         </ul>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-share"></i> <span>Data Dosen</span>
+            <i class="fa fa-share"></i> <span>Daftar Dosen</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url('dosen/InputDosen') ?>"><i class="fa fa-circle-o"></i> Profil </a></li>
+            <li><a href="<?php echo base_url('dosen/InputDosen/edit') ?>"><i class="fa fa-circle-o"></i> Edit Profil </a></li>
+          </ul>
         </li>
 
         <li class="treeview">
@@ -235,7 +239,7 @@
           <a href="#">
             <i class="fa fa-edit"></i> <span>Data Pengajuan Tervalidasi</span>
           </a>
-        </li>
+        </li> -->
         
                 <li class="treeview">
              <a href="#">

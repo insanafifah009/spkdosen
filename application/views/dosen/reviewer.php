@@ -1,42 +1,27 @@
- <div class="content-wrapper">
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
-        <small>Control panel</small>
+        Data Diri
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Data Kategori Pengabdian</li>
+        <li class="active">Daftar Dosen</li>
       </ol>
     </section>
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Kegiatan</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Kegiatan">
-                </div>
-                
-              </div>
-              <!-- /.box-body -->
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-        </div>
+
+    <!-- Main content -->
+    <div class="col-md-3">
+  <form id="formphoto">
+      <div class="thumbnail">                        
+        <img src="img/work.png">
+        <span id="tukarphoto" style="margin-top: 5px" class="btn btn-link">Ganti Foto Profil</span>
+        <input type="file" name="file" id="file" style="display: none;"/>
       </div>
-    </section>
+    </form>
+</div>
+
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
@@ -48,13 +33,21 @@
               <table id="exampleb 2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Kegiatan</th>
+                  <th>Judul</th>
+                  <th>Penulis Jurnal Ilmiah</th>
+                  <th>Identitas Jurnal Ilmiah</th>
+                  <th>Pangkat/Golongan Ruang</th>
+                  <th>Kategori Publikasi Jurnal Ilmiah Buku (beri v pada kategori yang tepat)</th>
+                  <th>Hasil penilaian <i>peer review</i></th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td>
@@ -65,8 +58,8 @@
                 </tr>
                 
                 </tbody>
-                </table>
+              </table>
             </div>
-
-  </div>
+            <!-- /.box-body -->
+          </div>
           <!-- /.box -->

@@ -17,13 +17,13 @@ class Penelitian_model extends CI_model
 		$result = $this->db->insert('penelitian',$data);
 		return $result;
 	}
-	public function getJudul(){
+	public function getJudul_id($judul){
 		$this->db->select('*');
 		$this->db->from('penelitian');
-		$query=$this->db->get();
-		return $query->result_array();
+		$this->db->where('judul',$judul);
+		$query = $this->db->get();
+		return $query;
 	}
-	
 	public function get_penelitian(){
 		$query =$this->db->query('SELECT * FROM penelitian JOIN unsur_kegiatan ON penelitian.`unsur`=unsur_kegiatan.`id_unsur` JOIN sub_kegiatan ON penelitian.`sub`=sub_kegiatan.`id_sub` JOIN `uraian_kegiatan` ON penelitian.`uraian`=`uraian_kegiatan`.`id_uraian` JOIN dosen ON penelitian.`id_dosen`=dosen.`id_dosen`');
 		return $query->result_array();

@@ -13,7 +13,7 @@ class Model_dosen extends CI_model {
 	}
 	
 	public function get_unsur_pendidikan($id){
-		$unsur = "<option value='0'>Pilih Detail</option>";
+		$unsur = "<option value='0'>Pilih Unsur Kegiatan</option>";
 		$this->db->select('id_unsur,nama_unsur');
 		$this->db->where('id_unsur',$id);
 		$this->db->from('unsur_kegiatan');
@@ -25,7 +25,7 @@ class Model_dosen extends CI_model {
 		return $unsur;
 	}
 	public function get_sub_pendidikan($id){
-		$unsur = "<option value='0'>Pilih Detail</option>";
+		$unsur = "<option value='0'>Pilih Sub Kegiatan</option>";
 		$this->db->select('id_sub,nama_sub');
 		$this->db->where('id_unsur',$id);
 		$this->db->from('sub_kegiatan');
@@ -39,7 +39,7 @@ class Model_dosen extends CI_model {
 
 
 	public function get_uraian_pendidikan($id){
-		$unsur = "<option value='0'>Pilih Uraian</option>";
+		$unsur = "<option value='0'>Pilih Uraian Kegiatan</option>";
 		$this->db->select('id_uraian,nama_uraian');
 		$this->db->where('id_sub',$id);
 		$this->db->from('uraian_kegiatan');
@@ -50,10 +50,10 @@ class Model_dosen extends CI_model {
 		}
 		return $unsur;
 	}
-	public function get_pengajaran(){
-		$query =$this->db->query('select * from unsur_kegiatan');
-		return $query->result_array();
-	}
+	// public function get_pengajaran(){
+	// 	$query =$this->db->query('select * from unsur_kegiatan');
+	// 	return $query->result_array();
+	// }
 	public function get_unsur($id){
 		$unsur = "<option value='0'>Pilih Detail</option>";
 		$this->db->select('id_sub,nama_sub');
@@ -67,24 +67,43 @@ class Model_dosen extends CI_model {
 		return $unsur;
 	}
 
-	public function get_uraian($id){
-		$unsur = "<option value='0'>Pilih Uraian</option>";
-		$this->db->select('id_uraian,nama_uraian');
-		$this->db->where('id_sub',$id);
-		$this->db->from('uraian_kegiatan');
+	// public function get_uraian($id){
+	// 	$unsur = "<option value='0'>Pilih Uraian</option>";
+	// 	$this->db->select('id_uraian,nama_uraian');
+	// 	$this->db->where('id_sub',$id);
+	// 	$this->db->from('uraian_kegiatan');
+	// 	$query = $this->db->get();
+	// 	$hasil = $query->result_array();
+	// 	foreach ($hasil as $hsl) {
+	// 		$unsur.="<option value='$hsl[id_uraian]'>$hsl[nama_uraian]</option>";
+	// 	}
+	// 	return $unsur;
+	// }
+	// public function get_penelitian(){
+	// 	$query =$this->db->query('select * from unsur_kegiatan ');
+	// 	return $query->result_array();
+	// }
+
+	public function get_penelitian(){
+		$query =$this->db->query('select * from unsur_kegiatan');
+		return $query->result_array();
+	}
+
+	public function get_unsur_penelitian($id){
+		$unsur = "<option value='0'>Pilih Unsur Kegiatan</option>";
+		$this->db->select('id_unsur,nama_unsur');
+		$this->db->where('id_unsur',$id);
+		$this->db->from('unsur_kegiatan');
 		$query = $this->db->get();
 		$hasil = $query->result_array();
 		foreach ($hasil as $hsl) {
-			$unsur.="<option value='$hsl[id_uraian]'>$hsl[nama_uraian]</option>";
+			$unsur.="<option value='$hsl[id_unsur]'>$hsl[nama_unsur]</option>";
 		}
 		return $unsur;
 	}
-	public function get_penelitian(){
-		$query =$this->db->query('select * from unsur_kegiatan ');
-		return $query->result_array();
-	}
-	public function get_unsur_penelitian($id){
-		$unsur = "<option value='0'>Pilih unsur penelitian</option>";
+
+	public function get_sub_penelitian($id){
+		$unsur = "<option value='0'>Pilih Sub Kegiatan</option>";
 		$this->db->select('id_sub,nama_sub');
 		$this->db->where('id_unsur',$id);
 		$this->db->from('sub_kegiatan');
@@ -95,6 +114,7 @@ class Model_dosen extends CI_model {
 		}
 		return $unsur;
 	}
+
 
 	public function get_uraian_penelitian($id){
 		$unsur = "<option value='0'>Pilih Uraian</option>";
@@ -108,6 +128,7 @@ class Model_dosen extends CI_model {
 		}
 		return $unsur;
 	}
+	
 	public function get_pengabdian(){
 		$query =$this->db->query('select * from unsur_kegiatan');
 		return $query->result_array();

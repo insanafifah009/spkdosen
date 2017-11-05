@@ -46,19 +46,6 @@ class Menudupak extends CI_Controller {
 		$this->load->view('dosen/menudupak/tambah/tambah_pend',$data);
 		$this->load->view('atribut/footer');
 	}
-	public function pengajaran()
-	{
-		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/datapengajaran');
-		$this->load->view('atribut/footer');
-	}
-	public function tambahPengajaran()
-	{
-		$data['pengajaran']=$this->model_dosen->get_pengajaran();
-		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/tambah/tambah_pengajaran',$data);
-		$this->load->view('atribut/footer');
-	}
 	public function penelitian()
 	{
 		$data['penelitian']=$this->penelitian_model->get_penelitian();
@@ -70,31 +57,48 @@ class Menudupak extends CI_Controller {
 	{
 		$data['penelitian']=$this->unsur_model->getUnsur();
 		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/tambah/tambah_penelitian', $data);
+		$this->load->view('dosen/menudupak/tambah/tambah_penelitian',$data);
 		$this->load->view('atribut/footer');
 	}
+	public function pengajaran()
+	{
+		$data['pengajaran']=$this->pengajaran_model->get_pengajaran();
+		$this->load->view('atribut/header');
+		$this->load->view('dosen/menudupak/datapengajaran',$data);
+		$this->load->view('atribut/footer');
+	}
+	public function tambahPengajaran()
+	{
+		$data['pengajaran']=$this->unsur_model->getUnsur();
+		$this->load->view('atribut/header');
+		$this->load->view('dosen/menudupak/tambah/tambah_pengajaran',$data);
+		$this->load->view('atribut/footer');
+	}
+	
 	public function pengabdian()
 	{
+		$data['pengabdian']=$this->pengabdian_model->get_pengabdian();
 		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/datapengabdian');
+		$this->load->view('dosen/menudupak/datapengabdian',$data);
 		$this->load->view('atribut/footer');
 	}
 	public function tambahPengabdian()
 	{
-		$data['pengabdian']=$this->model_dosen->get_pengabdian();
+		$data['pengabdian']=$this->unsur_model->getUnsur();
 		$this->load->view('atribut/header');
 		$this->load->view('dosen/menudupak/tambah/tambah_pengabdian',$data);
 		$this->load->view('atribut/footer');
 	}
 	public function penunjang()
 	{
+		$data['penunjang']=$this->penunjang_model->get_penunjang();
 		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/datapenunjang');
+		$this->load->view('dosen/menudupak/datapenunjang',$data);
 		$this->load->view('atribut/footer');
 	}
-	public function tambahpenunjang()
+	public function tambahPenunjang()
 	{
-		$data['penunjang']=$this->model_dosen->get_penunjang();
+		$data['penunjang']=$this->unsur_model->getUnsur();
 		$this->load->view('atribut/header');
 		$this->load->view('dosen/menudupak/tambah/tambah_penunjang',$data);
 		$this->load->view('atribut/footer');
@@ -114,6 +118,8 @@ class Menudupak extends CI_Controller {
 	// 	$this->load->view('dosen/menudupak/tambah/tambah_pend',$data);
 	// 	$this->load->view('atribut/footer');
 	// }
+
+	//
 	public function addTempat()
 	{
 		$tempat = $this->input->post('txt_tempat');
@@ -124,6 +130,11 @@ class Menudupak extends CI_Controller {
 		$data['uraian'] = $this->input->post('cb_uraian');
 		$data['tempat'] = $this->input->post('txt_tempat');
 		$data['tanggal']= $this->input->post('txt_tgl');
+		$data['satuan_hasil'] = $this->input->post('txt_satuan');
+		$data['jumlah_volume'] = $this->input->post('txt_jumlahv');
+		$data['angka_kredit'] = $this->input->post('txt_ak');
+		$data['jumlah_ak']= $this->input->post('txt_jumlahak');
+		$data['lampiran']= $this->input->post('txt_lamp');
 
 		$result = $this->pendidikan_model->addTempat($data);
 		redirect('dosen/Menudupak');
@@ -135,15 +146,46 @@ class Menudupak extends CI_Controller {
 		$this->load->view('dosen/menudupak/tambah/tambah_pend',$data);
 		$this->load->view('atribut/footer');
 	}
+
+	public function editPendidikan(){
+		$id=$this->input->post('edit_idpendidikan');
+		$data=array(
+			"tempat"=>$this->input->post('txt_tempat')
+		);
+		$result=$this->unsur_model->editPendidikan('pendidikan',$data,$id);
+		if ($result>=0) {
+			redirect('dosen/Menudupak');
+		}else{
+			redirect('dosen/Menudupak');
+		}
+	}
+	public function deletePendidikan($id){
+		$result =$this->pendidikan_model->deletePendidikan($id);
+		if($result>=1){
+			redirect('dosen/Menudupak');
+		}
+
+	}
+
+
+
+
+
+
 	public function addJudul()
 	{
-		$tempat = $this->input->post('txt_judul');
+		$judul = $this->input->post('txt_judul');
 		$data['id_dosen'] = $this->session->userdata('id');
 		$data['unsur'] = $this->input->post('cb_unsur');
 		$data['sub'] = $this->input->post('cb_detail');
 		$data['uraian'] = $this->input->post('cb_uraian');
 		$data['judul'] = $this->input->post('txt_judul');
 		$data['link']= $this->input->post('txt_link');
+		$data['satuan_hasil'] = $this->input->post('txt_satuan');
+		$data['jumlah_volume'] = $this->input->post('txt_jumlahv');
+		$data['angka_kredit'] = $this->input->post('txt_ak');
+		$data['jumlah_ak']= $this->input->post('txt_jumlahak');
+		$data['lampiran']= $this->input->post('txt_lamp');
 
 		$result = $this->penelitian_model->addJudul($data);
 		redirect('dosen/Menudupak');
@@ -168,6 +210,11 @@ class Menudupak extends CI_Controller {
 		$data['tahun']= $this->input->post('txt_tahun');
 		$data['tempat']= $this->input->post('txt_tempat');
 		$data['tanggal']= $this->input->post('txt_tgl');
+		$data['satuan_hasil'] = $this->input->post('txt_satuan');
+		$data['jumlah_volume'] = $this->input->post('txt_jumlahv');
+		$data['angka_kredit'] = $this->input->post('txt_ak');
+		$data['jumlah_ak']= $this->input->post('txt_jumlahak');
+		$data['lampiran']= $this->input->post('txt_lamp');
 
 		$result = $this->pengajaran_model->addMK($data);
 		redirect('dosen/Menudupak');
@@ -191,6 +238,11 @@ class Menudupak extends CI_Controller {
 		$data['bentuk']= $this->input->post('txt_bentuk');
 		$data['tempat'] = $this->input->post('txt_tempat');
 		$data['tanggal']= $this->input->post('txt_tgl');
+		$data['satuan_hasil'] = $this->input->post('txt_satuan');
+		$data['jumlah_volume'] = $this->input->post('txt_jumlahv');
+		$data['angka_kredit'] = $this->input->post('txt_ak');
+		$data['jumlah_ak']= $this->input->post('txt_jumlahak');
+		$data['lampiran']= $this->input->post('txt_lamp');
 
 		$result = $this->pengabdian_model->addKegiatan($data);
 		redirect('dosen/Menudupak');
@@ -213,6 +265,11 @@ class Menudupak extends CI_Controller {
 		$data['tingkat']= $this->input->post('txt_tingkat');
 		$data['tempat'] = $this->input->post('txt_tempat');
 		$data['tanggal']= $this->input->post('txt_tgl');
+		$data['satuan_hasil'] = $this->input->post('txt_satuan');
+		$data['jumlah_volume'] = $this->input->post('txt_jumlahv');
+		$data['angka_kredit'] = $this->input->post('txt_ak');
+		$data['jumlah_ak']= $this->input->post('txt_jumlahak');
+		$data['lampiran']= $this->input->post('txt_lamp');
 
 		$result = $this->penunjang_model->addKegiatan_p($data);
 		redirect('dosen/Menudupak');
@@ -224,6 +281,8 @@ class Menudupak extends CI_Controller {
 		$this->load->view('dosen/menudupak/tambah/tambah_penunjang',$data);
 		$this->load->view('atribut/footer');
 	}
+
+	//PENGAMBILAN UNSUR//
 	
 	function  get_unsur(){
 		$modul = $this->input->post('modul');
@@ -231,17 +290,18 @@ class Menudupak extends CI_Controller {
 
 			if ($modul == "unsur"){
 				echo $this->model_dosen->get_unsur($id);
+			}else if($modul == "sub"){
+				echo $this->model_dosen->get_sub($id);
 			}else{
 				echo $this->model_dosen->get_uraian($id);
 			}
-
 	}
 
 	function  get_unsur_penelitian(){
 		$modul = $this->input->post('modul');
 		$id = $this->input->post('id');
 
-			if ($modul == "unsur"){
+			if ($modul == "unsur_penelitian"){
 				echo $this->model_dosen->get_unsur_penelitian($id);
 			}else{
 				echo $this->model_dosen->get_uraian_penelitian($id);
@@ -258,7 +318,6 @@ class Menudupak extends CI_Controller {
 			}else{
 				echo $this->model_dosen->get_uraian_pengabdian($id);
 			}
-
 	}
 	function  get_unsur_pendidikan(){
 		$modul = $this->input->post('modul');
@@ -266,10 +325,11 @@ class Menudupak extends CI_Controller {
 
 			if ($modul == "unsur_pendidikan"){
 				echo $this->model_dosen->get_unsur_pendidikan($id);
+			}else if($modul == "sub_pendidikan"){
+				echo $this->model_dosen->get_sub_pendidikan($id);
 			}else{
 				echo $this->model_dosen->get_uraian_pendidikan($id);
 			}
-
 	}
 	function  get_unsur_penunjang(){
 		$modul = $this->input->post('modul');

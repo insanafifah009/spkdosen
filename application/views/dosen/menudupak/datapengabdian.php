@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+ <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>Data Pengabdian</h1>
@@ -29,11 +29,16 @@
                   <th>Bentuk</th>
                   <th>Tempat</th>
                   <th>Tanggal</th>
+                  <th>Satuan Hasil</th>
+                  <th>Jumlah Volume Kegiatan</th>
+                  <th>Angka Kredit</th>
+                  <th>Jumlah Angka Kredit</th>
                   <th>File</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
-                <tbody> <?php foreach ($pengabdian as $pend):?>
+                <tbody> 
+                  <?php foreach ($pengabdian as $pend):?>
                 <tr>
                   <td><?php echo $pend['id_pengabdian'] ?></td>
                   <td><?php echo $pend['nip'];?></td>
@@ -44,6 +49,10 @@
                   <td><?php echo $pend['bentuk'];?></td>
                   <td><?php echo $pend['tempat'];?></td>
                   <td><?php echo $pend['tanggal'];?></td>
+                  <td><?php echo $pend['satuan_hasil'];?></td>
+                  <td><?php echo $pend['jumlah_volume'];?></td>
+                  <td><?php echo $pend['angka_kredit'];?></td>
+                  <td><?php echo $pend['jumlah_ak'];?></td>
                   <td></td> 
                   <td>
                     <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
@@ -51,7 +60,7 @@
                   </td>
 
                 </tr>
-                
+                <?php endforeach;?>
                 </tbody>
                 </table>
             </div>
@@ -59,5 +68,4 @@
         </div>
       </div>
     </section>
-
-          
+  </div>

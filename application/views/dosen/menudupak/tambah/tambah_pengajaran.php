@@ -93,25 +93,55 @@
                    <input type="text" id="t" class="form-control" placeholder="Tanggal" name="txt_tgl">
                    </div>
               </div>
+              <div class="form-group required">
+                   <label class="col-sm-2">Satuan Hasil</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_satuan" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group required">
+                   <label class="col-sm-2">Jumlah Volume Kegiatan</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_jumlahv" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_ak" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Jumlah Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_jumlahak" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
               <div class="form-group">
                    <label class="col-sm-2">Lampiran SK</label>
-                   <input type="file" id="t" name="txt_lamp">
+                   <div class="col-md-12">
+                     <input type="file" id="t" name="txt_lamp">
+                   </div>
               </div>
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+          </div>
+
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
+            
           </form>
         </div>
       </div>
     </div>
   </section>
+
+</div>
   <!-- /.box -->
           <script type="text/javascript">
             $(document).ready(function(){
               $.ajaxSetup({
                 type : "POST",
-                url : "<?php echo base_url("menudupak/get_unsur_pengajaran");
+                url : "<?php echo base_url("dosen/menudupak/get_unsur_pengajaran");
                 ?>",
                 chace: false,
               });
@@ -150,4 +180,3 @@
 
             });
           </script>
-        </div>

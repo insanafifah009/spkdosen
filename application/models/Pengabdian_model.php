@@ -25,7 +25,7 @@ class Pengabdian_model extends CI_model
 	}
 	
 	public function get_pengabdian(){
-		$query =$this->db->query('SELECT * FROM pengabdian JOIN unsur_kegiatan ON penelitian.`unsur`=unsur_kegiatan.`id_unsur` JOIN sub_kegiatan ON pengabdian.`sub`=sub_kegiatan.`id_sub` JOIN `uraian_kegiatan` ON pengabdian.`uraian`=`uraian_kegiatan`.`id_uraian` JOIN dosen ON pengabdian.`id_dosen`=dosen.`id_dosen`');
+		$query =$this->db->query('SELECT * FROM pengabdian JOIN unsur_kegiatan ON pengabdian.`unsur`=unsur_kegiatan.`id_unsur` JOIN sub_kegiatan ON pengabdian.`sub`=sub_kegiatan.`id_sub` JOIN `uraian_kegiatan` ON pengabdian.`uraian`=`uraian_kegiatan`.`id_uraian` JOIN dosen ON pengabdian.`id_dosen`=dosen.`id_dosen`');
 		return $query->result_array();
 	}
 	// public function editUnsur($tabel,$data,$param){

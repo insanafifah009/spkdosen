@@ -8,6 +8,7 @@
       </ol>
     </section>
     <!-- Main content -->
+
     <section class="content">
       <div class="row">
         <!-- left column -->
@@ -18,15 +19,10 @@
             <!-- form start -->
             <form method="POST" action="<?php echo base_url('dosen/Menudupak/addJudul')?>">
               <div class="box-body">
-                <div class="form-group required">
-                   <label class="col-sm-2">NIP/NIDN Dosen</label>
-                   <div class="col-md-12">
-                   <input type="text" class="form-control" placeholder="Masukkan NIP/NIDN" name="txt_nip" value="<?php echo $this->session->userdata('nip') ?>" readonly>
-                   </div>
-              </div>
                 <div class="form-group">
-                  <label class="col-sm-4" for="">Unsur Kegiatan Penelitian</label>
+                  <label class="col-sm-3 " for="">Unsur Kegiatan Penelitian</label>
                   <div class="col-md-12">
+                    <input type="hidden" name="id_dosen" value="<?php echo $this->session->userdata('id') ?>">
                   <select class="form-control" name="cb_unsur" id="cb_unsur">
                     <option value="">Pilih Unsur</option>
                     <?php foreach ($penelitian as $tes):?>
@@ -54,13 +50,37 @@
               <div class="form-group required">
                    <label class="col-sm-4">Judul Penelitian/Karya Ilmiah</label>
                    <div class="col-md-12">
-                   <input type="text" id="exampleInputFile" name="txt_judul" class="form-control" placeholder="Judul Penelitian">
+                   <input type="text" name="txt_judul" class="form-control" placeholder="Judul Penelitian">
                    </div>
               </div>
               <div class="form-group required">
                    <label class="col-sm-2">Link</label>
                    <div class="col-md-12">
                    <input type="text" id="exampleInputFile" name="txt_link" class="form-control" placeholder="Link penelitian">
+                   </div>
+              </div>
+              <div class="form-group required">
+                   <label class="col-sm-2">Satuan Hasil</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_satuan" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group required">
+                   <label class="col-sm-2">Jumlah Volume Kegiatan</label>
+                   <div class="col-md-12">
+                   <input type="text" name="txt_jumlahv" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_ak" id="exampleInputFile" class="form-control">
+                   </div>
+              </div>
+              <div class="form-group">
+                   <label class="col-sm-2">Jumlah Angka Kredit</label>
+                   <div class="col-md-12">
+                     <input type="text" name="txt_jumlahak" id="exampleInputFile" class="form-control">
                    </div>
               </div>
               <div class="form-group">
@@ -80,11 +100,11 @@
       </div>
     </div>
   </section>
+</div>
 
-
-<script type="text/javascript">
+          <script type="text/javascript">
             $(document).ready(function(){
-            $.ajaxSetup({
+              $.ajaxSetup({
                 type : "POST",
                 url : "<?php echo base_url("dosen/menudupak/get_unsur_penelitian");
                 ?>",
@@ -106,12 +126,13 @@
                     })
                   }
                 });
-                              $("#cb_detail").change(function() {
+
+                $("#cb_detail").change(function() {
                 var nilai = $(this).val();
                 if (nilai > 0){
                   $.ajax({
                     data: {
-                      modul: 'penelitian',
+                      modul: 'uraian',
                       id: nilai
                     },
                     success: function(respond)
@@ -121,6 +142,6 @@
                     })
                   }
                 });
-        });
-      </script>
-      </div>
+
+            });
+          </script>

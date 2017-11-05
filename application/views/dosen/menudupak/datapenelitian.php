@@ -27,8 +27,12 @@
                   <th>Sub Kegiatan</th>
                   <th>Uraian Kegiatan</th>
                   <th>Judul Penelitian</th>
-                  <th>File</th>
                   <th>Link</th>
+                  <th>Satuan Hasil</th>
+                  <th>Jumlah Volume Kegiatan</th>
+                  <th>Angka Kredit</th>
+                  <th>Jumlah Angka Kredit</th>
+                  <th>File</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -42,6 +46,10 @@
                   <td><?php echo $pen['nama_uraian'];?></td>
                   <td><?php echo $pen['judul'];?></td>
                   <td><?php echo $pen['link'];?></td>
+                  <td><?php echo $pen['satuan_hasil'];?></td>
+                  <td><?php echo $pen['jumlah_volume'];?></td>
+                  <td><?php echo $pen['angka_kredit'];?></td>
+                  <td><?php echo $pen['jumlah_ak'];?></td>
                   <td></td> 
                   <td>
                     <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
@@ -58,3 +66,4 @@
         </div>
       </div>
     </section>  
+  </div>

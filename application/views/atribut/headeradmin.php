@@ -123,7 +123,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="<?php echo base_url('admin/Dosen') ?>">
             <i class="fa fa-user"></i> <span>Data Dosen</span>
           </a>
         </li>

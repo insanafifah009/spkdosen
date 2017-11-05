@@ -187,4 +187,32 @@ class Model_dosen extends CI_model {
 		}
 		return $unsur;
 	}
+
+	public function getJurusan()
+	{
+		$data = $this->db->query("SELECT * FROM jurusan");
+		if ($data->num_rows()>0) {
+			return $data->result_array();
+		}else{
+			return array();
+		}
+	}
+
+	public function tambahDosen($data)
+	{
+		$this->db->insert('dosen', $data);
+	}
+
+	public function dataDosen()
+	{
+		$this->db->select("*");
+		$this->db->from("dosen");
+		$this->db->join("jurusan","dosen.id_jur=jurusan.id_jur");
+		$data = $this->db->get();
+		if ($data->num_rows()>0) {
+			return $data->result_array();
+		}else{
+			return array();
+		}
+	}
 }

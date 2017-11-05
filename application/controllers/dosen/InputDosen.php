@@ -20,14 +20,30 @@ class InputDosen extends CI_Controller {
 	 */
 	public function index()
 	{
+<<<<<<< HEAD:application/controllers/dosen/InputDosen.php
 		$this->load->view('atribut/header');
 		$this->load->view('dosen/data');
+=======
+		$this->load->view('atribut/headeradmin');
+		$this->load->view('admin/main');
+>>>>>>> d59cc3bd4b3bbd1bca87a8fc7de24094379c43f2:application/controllers/admin/Admin.php
 		$this->load->view('atribut/footer');
 	}
 	public function edit()
 	{
+<<<<<<< HEAD:application/controllers/dosen/InputDosen.php
 		$this->load->view('atribut/header');
 		$this->load->view('dosen/editprofil');
+=======
+		$this->load->view('atribut/headeradmin');
+		$this->load->view('pages/editprofil');
+		$this->load->view('atribut/footer');
+	}
+	public function ubah()
+	{
+		$this->load->view('atribut/headeradmin');
+		$this->load->view('pages/ubahpass');
+>>>>>>> d59cc3bd4b3bbd1bca87a8fc7de24094379c43f2:application/controllers/admin/Admin.php
 		$this->load->view('atribut/footer');
 	}
 	

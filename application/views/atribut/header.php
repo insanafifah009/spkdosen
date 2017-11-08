@@ -166,7 +166,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-           <li><a href="<?php echo base_url('dosen/Menudupak') ?>"><i class="fa fa-circle-o"></i>  Data Pendidikan</a></li>
+           <li><a href="<?php echo base_url('dosen/Pendidikan') ?>"><i class="fa fa-circle-o"></i>  Data Pendidikan</a></li>
             <li><a href="<?php echo base_url('dosen/Menudupak/pengajaran') ?>"><i class="fa fa-circle-o"></i> Data Pengajaran</a></li>
             <li><a href="<?php echo base_url('dosen/Menudupak/penelitian') ?>"><i class="fa fa-circle-o"></i> Data Penelitian</a></li>
             <li><a href="<?php echo base_url('dosen/Menudupak/pengabdian') ?>"><i class="fa fa-circle-o"></i> Data Pengabdian</a></li>

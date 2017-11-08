@@ -31,21 +31,7 @@ class Menudupak extends CI_Controller {
 			redirect('login');
 		}
 	}
-	public function index()
-	{
-		$data['pendidikan']=$this->pendidikan_model->get_pendidikan();
-		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/datapendidikan', $data);
-		$this->load->view('atribut/footer');
-	}
-
-	public function tambahPendidikan()
-	{
-		$data['pendidikan']=$this->unsur_model->getUnsur();
-		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/tambah/tambah_pend',$data);
-		$this->load->view('atribut/footer');
-	}
+	
 	public function penelitian()
 	{
 		$data['penelitian']=$this->penelitian_model->get_penelitian();
@@ -101,49 +87,6 @@ class Menudupak extends CI_Controller {
 		$data['penunjang']=$this->unsur_model->getUnsur();
 		$this->load->view('atribut/header');
 		$this->load->view('dosen/menudupak/tambah/tambah_penunjang',$data);
-		$this->load->view('atribut/footer');
-	}
-
-	// public function addNip()
-	// {
-	// 	$nip = $this->input->post('txt_nip');
-	// 	$data['nip'] = $nip;
-	// 	$result = $this->pendidikan_model->addNip($data);
-	// 	redirect('dosen/Menudupak');
-	// }
-	// public function getNip($nip)
-	// {
-	// 	$data['pendidikan']=$this->pendidikan_model->getNip($nip)->row();
-	// 	$this->load->view('atribut/header');
-	// 	$this->load->view('dosen/menudupak/tambah/tambah_pend',$data);
-	// 	$this->load->view('atribut/footer');
-	// }
-
-	//
-	public function addTempat()
-	{
-		$tempat = $this->input->post('txt_tempat');
-		// $data['tempat'] = $tempat;
-		$data['id_dosen'] = $this->session->userdata('id');
-		$data['unsur'] = $this->input->post('cb_unsur');
-		$data['sub'] = $this->input->post('cb_detail');
-		$data['uraian'] = $this->input->post('cb_uraian');
-		$data['tempat'] = $this->input->post('txt_tempat');
-		$data['tanggal']= $this->input->post('txt_tgl');
-		$data['satuan_hasil'] = $this->input->post('txt_satuan');
-		$data['jumlah_volume'] = $this->input->post('txt_jumlahv');
-		$data['angka_kredit'] = $this->input->post('txt_ak');
-		$data['jumlah_ak']= $this->input->post('txt_jumlahak');
-		$data['lampiran']= $this->input->post('txt_lamp');
-
-		$result = $this->pendidikan_model->addTempat($data);
-		redirect('dosen/Menudupak');
-	}
-	public function getTempat($tempat)
-	{
-		$data['pendidikan']=$this->pendidikan_model->getTempat($tempat)->row();
-		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/tambah/tambah_pend',$data);
 		$this->load->view('atribut/footer');
 	}
 

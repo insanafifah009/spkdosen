@@ -44,7 +44,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-info">
-				<button data-dismiss="modal"><i>&times;</i></button>
+				<button class="close" data-dismiss="modal"><i>&times;</i></button>
 				<h2 class="modal-title">Tambah sub kegiatan</h2>
 			</div>
 		</div>

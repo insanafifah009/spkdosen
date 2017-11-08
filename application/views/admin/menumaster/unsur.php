@@ -21,7 +21,6 @@
                 <tr>
                   <th>No</th>
                   <th>Unsur Kegiatan</th>
-                  <th>Kategori</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -30,7 +29,6 @@
                 <tr>
                   <td><?php echo $unsur['id_unsur'];?></td>
                   <td><?php echo $unsur['nama_unsur'];?></td>
-                  <td><?php echo $unsur['kategori']?></td>
                   <td>
                     <a href="<?php echo base_url('admin/Kegiatan/subunsur/').$unsur['id_unsur']?>" class="btn btn-xs btn-success"><i class="fa fa-level-down"></i> Tambah Sub Kegiatan </a>
 

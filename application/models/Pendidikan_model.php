@@ -40,7 +40,7 @@ class Pendidikan_model extends CI_model
 		$query=$this->db->get();
 		return $query->result_array();
 	}
-	public function getTempat_id($tempat){
+	public function ubahPendidikan($tempat){
 		$this->db->select('*');
 		$this->db->from('pendidikan');
 		$this->db->where('tempat',$tempat);
@@ -48,9 +48,26 @@ class Pendidikan_model extends CI_model
 		return $query;
 	}
 	public function get_pendidikan(){
-		$query =$this->db->query('SELECT * FROM pendidikan JOIN unsur_kegiatan ON pendidikan.`unsur`=unsur_kegiatan.`id_unsur` JOIN sub_kegiatan ON pendidikan.`sub`=sub_kegiatan.`id_sub` JOIN `uraian_kegiatan` ON pendidikan.`uraian`=`uraian_kegiatan`.`id_uraian` JOIN dosen ON pendidikan.`id_dosen`=dosen.`id_dosen`');
-		return $query->result_array();
+		$this->db->select('*');
+		$this->db->from('pendidikan');
+		$this->db->join('uraian_kegiatan', 'pendidikan.uraian = uraian_kegiatan.id_uraian', 'left');
+		$this->db->join('sub_kegiatan', 'uraian_kegiatan.id_sub = sub_kegiatan.id_sub', 'left');
+		$this->db->join('unsur_kegiatan', 'sub_kegiatan.id_unsur = unsur_kegiatan.id_unsur', 'left');
+		$this->db->where('unsur_kegiatan.id_unsur=1');
+		$data = $this->db->get();
+		if ($data) {
+			return $data->result_array();
+		}else{
+			return array();
+		}
 	}
+
+	public function getUraian()
+	{
+		$data = $this->db->query("SELECT * FROM sub_kegiatan where id_unsur=1");
+		return $data->result_array();
+	}
+
 	public function editPendidikan($tabel,$data,$param){
 		$this->db->where('id_pendidikan',$param);
 		$this->db->update($tabel,$data);
@@ -69,6 +86,22 @@ class Pendidikan_model extends CI_model
 		else{
 			return FALSE;
 		}
+	}
+
+	public function getsubUraian($subUnsur)
+	{
+		// $query = "select * from uraian_kegiatan, sub_kegiatan where uraian_kegiatan.id_sub=sub_kegiatan.id_sub";
+		$this->db->select('*');
+		$this->db->from('uraian_kegiatan');
+		$this->db->join('sub_kegiatan', 'uraian_kegiatan.id_sub = sub_kegiatan.id_sub', 'left');
+		$this->db->where('uraian_kegiatan.id_sub', $subUnsur);
+		$data = $this->db->get();
+		return $data->result();
+	}
+	public function getAngkaKredit($uraian)
+	{
+		$data =$this->db->query('select * from uraian_kegiatan where id_uraian=?', array($uraian));
+		return $data->result_array();
 	}
 }
 

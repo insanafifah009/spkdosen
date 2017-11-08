@@ -21,7 +21,28 @@ class Uraian_model extends CI_model
 		$query=$this->db->get();
 		return $query->result_array();
 	}
-	public function editUraian($tabel,$data,$param){
+	public function lihaturaian(){
+		$this->db->select('*');
+		$this->db->from('uraian_kegiatan');
+		$this->db->join('sub_kegiatan','uraian_kegiatan.id_sub=sub_kegiatan.id_sub');
+		$this->db->join('unsur_kegiatan','sub_kegiatan.id_unsur=unsur_kegiatan.id_unsur');
+		$query = $this->db->get();
+		if ($query->num_rows()>-0) {
+			return $query->result_array();
+		}else{
+			return array();
+		}
+	}
+	public function editUraian($id){
+		$query = $this->db->query("select * from uraian_kegiatan where id_uraian=?", $id);
+		if ($query->num_rows()>0) {
+			return $query;
+		}else{
+			return false;
+		}
+		
+	}
+	public function updateuraian($tabel,$data,$param){
 		$this->db->where('id_uraian',$param);
 		$this->db->update($tabel,$data);
 		if ($this->db->affected_rows() > 0){

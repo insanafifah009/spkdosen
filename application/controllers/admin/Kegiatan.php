@@ -26,13 +26,22 @@ class Kegiatan extends CI_Controller
 		$this->load->view('atribut/footer');
     }
 
-    public function subunsur($id)
+    public function subkegiatan($id)
     {
-    	$data['unsur'] = $this->unsur_model->editunsur($id)->row();
+    	$data['unsur_kegiatan'] = $this->unsur_model->getUnsur();
     	$data['subunsur'] = $this->unsur_model->getSubUnsur($id);
     	$this->load->view('atribut/headeradmin');
 		$this->load->view('admin/menumaster/subunsur',$data);
 		$this->load->view('atribut/footer');	
+    }
+    public function uraian($id)
+    {
+        $data['unsur'] = $this->unsur_model->editunsur($id)->row();
+        $data['subunsur'] = $this->unsur_model->getSubUnsur($id);
+        $data['uraian'] = $this->unsur_model->getUraian($id);
+        $this->load->view('atribut/headeradmin');
+        $this->load->view('admin/menumaster/uraian',$data);
+        $this->load->view('atribut/footer');    
     }
 }
 

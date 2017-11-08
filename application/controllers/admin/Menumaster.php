@@ -37,15 +37,18 @@ class Menumaster extends CI_Controller {
 	}
 	public function indexa()
 	{
+		$data ['unsur_kegiatan']=$this->unsur_model->getUnsur();
 		$data ['sub_kegiatan']=$this->subkegiatan_model->getSubkegiatan();
+		$data ['lihatunsurku']=$this->subkegiatan_model->lihatunsur();
 		$this->load->view('atribut/headeradmin');
 		$this->load->view('admin/menumaster/subkegiatan',$data);
 		$this->load->view('atribut/footer');
 	}
 	public function indexb()
 	{
+		$data['lihaturaianku']=$this->uraian_model->lihaturaian();
 		$this->load->view('atribut/headeradmin');
-		$this->load->view('admin/menumaster/uraian');
+		$this->load->view('admin/menumaster/uraian', $data);
 		$this->load->view('atribut/footer');
 	}
 
@@ -60,8 +63,8 @@ class Menumaster extends CI_Controller {
 	
 	public function getUnsur($id)
 	{
-		$data['pendidikan']=$this->unsur_model->getUnsur_id($id)->row();
-		$this->load->view('atribut/header');
+		$data['unsur_kegiatann']=$this->unsur_model->editunsur($id)->row();
+		$this->load->view('atribut/headeradmin');
 		$this->load->view('admin/menumaster/editunsur',$data);
 		$this->load->view('atribut/footer');
 	}
@@ -70,7 +73,7 @@ class Menumaster extends CI_Controller {
 		$data=array(
 			"nama_unsur"=>$this->input->post('txt_unsur')
 		);
-		$result=$this->unsur_model->editUnsur('unsur_kegiatan',$data,$id);
+		$result=$this->unsur_model->updateUnsur('unsur_kegiatan',$data,$id);
 		if ($result>=0) {
 			redirect('admin/Menumaster');
 		}else{
@@ -85,51 +88,55 @@ class Menumaster extends CI_Controller {
 
 	}
 
-	public function addsubkegiatan()
+	public function addsub()
 	{
 		$data= array(
-			"nama_detail"=> $this->input->post('txt_detail')
+			"id_unsur"=> $this->input->post('txt_idunsur'),
+			"nama_sub"=> $this->input->post('txt_sub')
 		);	
 		$result =$this->subkegiatan_model->addSubkegiatan('sub_kegiatan',$data);
-		redirect('admin/Menumaster');
+		redirect('admin/Menumaster/indexa');
 	}
 	public function getSubkegiatan($id)
 	{
-		$data['pendidikan']=$this->subkegiatan_model->getSubkegiatan($id);
-		$this->load->view('atribut/header');
+		$data['sub_kegiatannn']=$this->subkegiatan_model->editSubkegiatan($id)->row();
+		$this->load->view('atribut/headeradmin');
 		$this->load->view('admin/menumaster/editsubkegiatan',$data);
 		$this->load->view('atribut/footer');
 	}
 	public function editSubkegiatan(){
-		$id=$this->input->post('edit_idsubkegiatan');
+		$id=$this->input->post('edit_idsub');
 		$data=array(
-			"nama_detail"=>$this->input->post('txt_detail')
+			"id_unsur"=>$this->input->post('txt_unsur'),
+			"nama_sub"=>$this->input->post('txt_namasub')
 		);
-		$result=$this->subkegiatan_model->editSubkegiatan('sub_kegiatan',$data,$id);
+		$result=$this->subkegiatan_model->updatesub('sub_kegiatan',$data,$id);
 		if ($result>=0) {
-			redirect('admin/Menumaster');
+			redirect('admin/Menumaster/indexa');
 		}else{
-			redirect('admin/Menumaster');
+			redirect('admin/Menumaster/indexa');
 		}
 	}
 	public function deleteSubkegiatan($id){
 		$result =$this->subkegiatan_model->deleteSubkegiatan($id);
 		if($result>=1){
-			redirect('admin/Menumaster');
+			redirect('admin/Menumaster/indexa');
 		}
 
 	}
 	public function adduraian()
 	{
 		$data= array(
-			"nama_uraian"=> $this->input->post('txt_uraian')
+			"id_sub"=> $this->input->post('txt_idsub'),
+			"nama_uraian"=> $this->input->post('txt_uraian'),
+			"angka_kredit"=>$this->input->post('txt_angka')
 		);	
 		$result =$this->uraian_model->addUraian('uraian_kegiatan',$data);
-		redirect('admin/Menumaster');
+		redirect('admin/Menumaster/indexb');
 	}
 	public function getUraian($id)
 	{
-		$data['pendidikan']=$this->uraian_model->getUraian($id);
+		$data['uraian_kegiatannn']=$this->uraian_model->editUraian($id);
 		$this->load->view('atribut/header');
 		$this->load->view('admin/menumaster/edituraian',$data);
 		$this->load->view('atribut/footer');
@@ -137,19 +144,20 @@ class Menumaster extends CI_Controller {
 	public function editUraian(){
 		$id=$this->input->post('edit_iduraian');
 		$data=array(
+			"id_sub"=>$this->input->post('txt_idsub'),
 			"nama_uraian"=>$this->input->post('txt_uraian')
 		);
-		$result=$this->uraian_model->editUraian('uraian_kegiatan',$data,$id);
+		$result=$this->uraian_model->updateuraian('uraian_kegiatan',$data,$id);
 		if ($result>=0) {
-			redirect('admin/Menumaster');
+			redirect('admin/Menumaster/indexb');
 		}else{
-			redirect('admin/Menumaster');
+			redirect('admin/Menumaster/indexb');
 		}
 	}
 	public function deleteUraian($id){
 		$result =$this->uraian_model->deleteUraian($id);
 		if($result>=1){
-			redirect('admin/Menumaster');
+			redirect('admin/Menumaster/indexb');
 		}
 
 	}

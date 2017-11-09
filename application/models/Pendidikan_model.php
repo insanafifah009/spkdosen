@@ -90,7 +90,6 @@ class Pendidikan_model extends CI_model
 
 	public function getsubUraian($subUnsur)
 	{
-		// $query = "select * from uraian_kegiatan, sub_kegiatan where uraian_kegiatan.id_sub=sub_kegiatan.id_sub";
 		$this->db->select('*');
 		$this->db->from('uraian_kegiatan');
 		$this->db->join('sub_kegiatan', 'uraian_kegiatan.id_sub = sub_kegiatan.id_sub', 'left');

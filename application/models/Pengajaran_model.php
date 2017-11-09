@@ -25,28 +25,41 @@ class Pengajaran_model extends CI_model
 	}
 	
 	public function get_pengajaran(){
-		$query =$this->db->query('SELECT * FROM pengajaran JOIN unsur_kegiatan ON pengajaran.`unsur`=unsur_kegiatan.`id_unsur` JOIN sub_kegiatan ON pengajaran.`sub`=sub_kegiatan.`id_sub` JOIN `uraian_kegiatan` ON pengajaran.`uraian`=`uraian_kegiatan`.`id_uraian` JOIN dosen ON pengajaran.`id_dosen`=dosen.`id_dosen`');
-		return $query->result_array();
+		$this->db->select('*');
+		$this->db->from('pengajaran');
+		$this->db->join('uraian_kegiatan', 'pengajaran.uraian = uraian_kegiatan.id_uraian', 'left');
+		$this->db->join('sub_kegiatan', 'uraian_kegiatan.id_sub = sub_kegiatan.id_sub', 'left');
+		$this->db->join('unsur_kegiatan', 'sub_kegiatan.id_unsur = unsur_kegiatan.id_unsur', 'left');
+		$this->db->where('unsur_kegiatan.id_unsur=2');
+		$data = $this->db->get();
+		if ($data) {
+			return $data->result_array();
+		}else{
+			return array();
+		}
 	}
-	// public function editUnsur($tabel,$data,$param){
-	// 	$this->db->where('id_unsur',$param);
-	// 	$this->db->update($tabel,$data);
-	// 	if ($this->db->affected_rows() > 0){
-	// 		return true;
-	// 	}else{
-	// 		return false;
-	// 	}
-	// }
-	// public function deleteUnsur($id){
-	// 	$this->db->where('id_unsur',$id);
-	// 	$this->db->delete('unsur_kegiatan');
-	// 	if ($this->db->affected_rows() > 0){
-	// 		return TRUE;
-	// 	}
-	// 	else{
-	// 		return FALSE;
-	// 	}
-	// }
+
+	public function getSubPengajaran()
+	{
+		$data = $this->db->query("SELECT * FROM sub_kegiatan WHERE id_unsur=2");
+		return $data->result_array();
+	}
+
+	public function getSubUraian($uraian)
+	{
+		$this->db->select('*');
+		$this->db->from('uraian_kegiatan');
+		$this->db->join('sub_kegiatan', 'uraian_kegiatan.id_sub = sub_kegiatan.id_sub', 'left');
+		$this->db->where('uraian_kegiatan.id_sub', $uraian);
+		$data = $this->db->get();
+		return $data->result();
+	}
+
+	public function getAngkaKredit($uraian)
+	{
+		$data =$this->db->query('select * from uraian_kegiatan where id_uraian=?', array($uraian));
+		return $data->result_array();
+	}
 }
 
 

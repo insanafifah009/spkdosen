@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datepicker/datepicker3.css') ?>">
   <!-- jQuery 2.2.3 -->
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js'); ?>"></script>
+
 <!-- Bootstrap 3.3.6 -->
 <script type="text/javascript" src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <!-- AdminLTE App -->

@@ -15,168 +15,107 @@
         <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary">
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form method="POST" action="<?php echo base_url('dosen/Menudupak/addMK')?>">
-              <div class="box-body">
-
-              <div class="form-group required">
-                   <label class="col-sm-2">NIP/NIDN Dosen</label>
-                   <div class="col-md-12">
-                   <input type="text" class="form-control" placeholder="Masukkan NIP/NIDN" name="txt_nip" value="<?php echo $this->session->userdata('nip') ?>" readonly>
-                   </div>
-              </div>
-                <div class="form-group">
-
-                  <label class="col-sm-4 " for="">Unsur Kegiatan Pengajaran</label>
-                  <div class="col-md-12">
-                  <select class="form-control" name="cb_unsur" id="cb_unsur">
-                    <option value="">Pilih Unsur</option>
-                    <?php foreach ($penelitian as $tes):?>
-                      <option value="<?php echo $tes['id_unsur']?>"> <?php echo $tes ['nama_unsur']?> </option>
+            <div class="box-header with-border">
+              <h2 class="box-title">Tambah Data Pengajaran</h2>
+            </div>
+            <div class="box-body">
+              <?= form_open_multipart('dosen/Pengajaran/addMK',['class'=>'form-vertical'])?>
+               <div class="form-group">
+                  <label>Sub Kegiatan Pengajaran</label>
+                  <select class="form-control" name="subPengajaran" id="subPengajaran">
+                    <option value="">Pilih Sub Kegiatan</option>
+                    <?php foreach ($pengajaran as $row): ?>
+                      <option value="<?php echo $row['id_sub'] ?>"><?php echo $row['nama_sub'] ?></option>
                     <?php endforeach ?>
                   </select>
-                </div>
               </div>
-               <div class="form-group">
-                  <label class="col-sm-4" for="">Sub Kegiatan Pengajaran</label>
-                  <div class="col-md-12">
-                  <select class="form-control" nama="cb_detail" id="cb_detail"><option value="">Pilih Sub Kegiatan</option>
+              <div class="form-group">
+                  <label>Uraian Pengajaran</label>
+                  <select class="form-control" name="cb_uraian" id="cb_uraian">
+                    <option value="">Pilih Uraian Kegiatan</option>
                   </select>
-                </div>
               </div>
               <div class="form-group">
-                  <label class="col-sm-2" for="">Uraian Pengajaran</label>
-                  <div class="col-md-12">
-                  <select class="form-control" nama="cb_uraian" id="cb_uraian"><option value="">Pilih Uraian Kegiatan</option>
-                  </select>
-                  </div>
+                <label>Mata Kuliah</label>
+                <input type="text" class="form-control" placeholder="Mata Kuliah" name="txt_mk">
               </div>
               <div class="form-group">
-                   <label class="col-sm-2">Mata Kuliah</label>
-                   <div class="col-md-12">
-                   <input type="text" id="exampleInputFile" class="form-control" placeholder="Mata Kuliah" name="txt_mk">
-                   </div>
-              </div>
-              <div class="form-group">
-                  <label class="col-sm-2" for="">SKS</label>
-                  <div class="col-md-12">
+                  <label>SKS</label>
                   <select class="form-control" name="txt_sks">
-                    <option value="">SKS</option>
+                    <option value="">Pilih SKS</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                   </select>
-                  </div>
               </div>
               <div class="form-group">
-                  <label class="col-sm-2" for="">Semester</label>
-                  <div class="col-md-12">
+                  <label>Semester</label>
                   <select class="form-control" name="txt_smt">
-                    <option value="">Semester</option>
+                    <option value="">Pilih Semester</option>
+                    <option value="1">Ganjil</option>
+                    <option value="0">Genap</option>
                   </select>
-                  </div>
               </div>
               <div class="form-group">
-                  <label class="col-sm-2" for="">Tahun Akademik</label>
-                  <div class="col-md-12">
-                  <select class="form-control" name="txt_tahun"><option value="">Tahun Akademik mengajar</option>
+                  <label>Tahun Akademik</label>
+                  <select class="form-control" name="txt_tahun">
+                    <option value="">Tahun Akademik mengajar</option>
+                        <?php
+                          $now = date('Y');
+                            for ($i = $now; $i > 1990; $i--) {
+                                echo "<option value=" . $i . ">" . $i . "</option>";
+                              }
+                        ?>
                   </select>
-                  </div>
               </div>
               <div class="form-group">
-                   <label class="col-sm-2">Tempat/Instansi</label>
-                   <div class="col-md-12">
-                   <input type="text" id="t" class="form-control" placeholder="Tempat/Instansi" name="txt_tempat">
-                   </div>
+                <label>Tempat/Instansi</label>
+                <input type="text" class="form-control" placeholder="Tempat/Instansi" name="txt_tempat">
               </div>
               <div class="form-group">
-                   <label class="col-sm-2">Tanggal</label>
-                   <div class="col-md-12">
-                   <input type="text" id="t" class="form-control" placeholder="Tanggal" name="txt_tgl">
-                   </div>
+                <label>Tanggal</label>
+                <input type="text" class="form-control" placeholder="Tanggal" name="txt_tgl">
               </div>
               <div class="form-group required">
-                   <label class="col-sm-2">Satuan Hasil</label>
-                   <div class="col-md-12">
-                   <input type="text" name="txt_satuan" id="exampleInputFile" class="form-control">
-                   </div>
-              </div>
-              <div class="form-group required">
-                   <label class="col-sm-2">Jumlah Volume Kegiatan</label>
-                   <div class="col-md-12">
-                   <input type="text" name="txt_jumlahv" id="exampleInputFile" class="form-control">
-                   </div>
+                <label>Satuan Hasil</label>
+                <input type="text" name="txt_satuan" id="satuan" class="form-control" placeholder="satuan hasil">
               </div>
               <div class="form-group">
-                   <label class="col-sm-2">Angka Kredit</label>
-                   <div class="col-md-12">
-                     <input type="text" name="txt_ak" id="exampleInputFile" class="form-control">
-                   </div>
+                <label>Lampiran SK</label>
+                <input type="file" name="userfile" class="form-control">
               </div>
               <div class="form-group">
-                   <label class="col-sm-2">Jumlah Angka Kredit</label>
-                   <div class="col-md-12">
-                     <input type="text" name="txt_jumlahak" id="exampleInputFile" class="form-control">
-                   </div>
+                  <button type="submit" class="btn btn-primary btn-flat"><i class="glyphicon glyphicon-save"></i> Simpan</button>
+                  <a href="<?php echo base_url('dosen/Pengajaran') ?>" class="btn btn-warning btn-flat"><i class="glyphicon glyphicon-remove"></i> Batal</a>
               </div>
-              <div class="form-group">
-                   <label class="col-sm-2">Lampiran SK</label>
-                   <div class="col-md-12">
-                     <input type="file" id="t" name="txt_lamp">
-                   </div>
-              </div>
-          </div>
-
-            <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <?= form_close();?>
             </div>
-            
-          </form>
+           
         </div>
       </div>
     </div>
   </section>
 
 </div>
-  <!-- /.box -->
-          <script type="text/javascript">
-            $(document).ready(function(){
-              $.ajaxSetup({
-                type : "POST",
-                url : "<?php echo base_url("dosen/menudupak/get_unsur_pengajaran");
-                ?>",
-                chace: false,
-              });
-
-              $("#cb_unsur").change(function() {
-                var nilai = $(this).val();
-                if (nilai > 0){
-                  $.ajax({
-                    data: {
-                      modul: 'unsur',
-                      id: nilai
-                    },
-                    success: function(respond)
-                    {
-                      $("#cb_detail").html(respond);
-                    }
-                    })
-                  }
-                });
-
-                $("#cb_detail").change(function() {
-                var nilai = $(this).val();
-                if (nilai > 0){
-                  $.ajax({
-                    data: {
-                      modul: 'uraian',
-                      id: nilai
-                    },
-                    success: function(respond)
-                    {
-                      $("#cb_uraian").html(respond);
-                    }
-                    })
-                  }
-                });
-
-            });
-          </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#subPengajaran').change(function(){
+        var pengajaran = $('#subPengajaran').val();
+        $.ajax({
+          url: '<?php echo base_url('dosen/Pengajaran/getUraian') ?>',
+          type: 'GET',
+          data: 'pengajaran='+pengajaran,
+          dataType: 'json',
+          success: function(data){
+            var uraian = `<select id="cb_uraian" name="cn_uraian">
+            <option value="">Pilih uraian</option>`;
+            for (var i = 0; i < data.length; i++) {
+              uraian+= '<option value="'+data[i].id_uraian+'">'+data[i].nama_uraian+'</option>';
+            }
+            uraian+='</select>';
+            $('#cb_uraian').html(uraian);
+          }
+        });
+      });
+    });
+  </script>

@@ -18,8 +18,11 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/skins/_all-skins.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datepicker/datepicker3.css') ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/datatables/dataTables.bootstrap.css') ?>">
   <!-- jQuery 2.2.3 -->
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/dataTables.bootstrap.js') ?>"></script>
 <!-- Bootstrap 3.3.6 -->
 <script type="text/javascript" src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <!-- SlimScroll -->
@@ -30,7 +33,6 @@
 <script type="text/javascript" src="<?php echo base_url('assets/dist/js/app.min.js'); ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script type="text/javascript" src="<?php echo base_url('assets/dist/js/demo.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/plugins/jQueryMaskMoney/jquery.maskMoney.min.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/datepicker/bootstrap-datepicker.js') ?>"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -69,13 +71,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('assets/img/img.png'); ?>" class="user-image" alt="User Image">
+              <img src="<?php echo base_url('img/work.png'); ?>" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo $this->session->userdata('nama_user');?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url('assets/img/img.png'); ?>" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url('img/work.png'); ?>" class="img-circle" alt="User Image">
 
                 <p>
                   <small>SPK Angka Kredit</small>
@@ -110,31 +112,16 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url('assets/img/img.png'); ?>" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url('img/logo.jpg'); ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">DOSEN</li>
-        <!-- <li class="treeview">
-          <a href="<?php echo base_url('C_index'); ?> ">
-            <i class="fa fa-dashboard"></i> <span>Beranda</span>
-          </a>
-        </li> -->
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Profil Dosen</span>
@@ -167,8 +154,8 @@
           </a>
           <ul class="treeview-menu">
            <li><a href="<?php echo base_url('dosen/Pendidikan') ?>"><i class="fa fa-circle-o"></i>  Data Pendidikan</a></li>
-            <li><a href="<?php echo base_url('dosen/Menudupak/pengajaran') ?>"><i class="fa fa-circle-o"></i> Data Pengajaran</a></li>
-            <li><a href="<?php echo base_url('dosen/Menudupak/penelitian') ?>"><i class="fa fa-circle-o"></i> Data Penelitian</a></li>
+            <li><a href="<?php echo base_url('dosen/Pengajaran') ?>"><i class="fa fa-circle-o"></i> Data Pengajaran</a></li>
+            <li><a href="<?php echo base_url('dosen/Penelitian') ?>"><i class="fa fa-circle-o"></i> Data Penelitian</a></li>
             <li><a href="<?php echo base_url('dosen/Menudupak/pengabdian') ?>"><i class="fa fa-circle-o"></i> Data Pengabdian</a></li>
             <li><a href="<?php echo base_url('dosen/Menudupak/penunjang') ?>"><i class="fa fa-circle-o"></i> Data Penunjang</a></li>
           </ul>

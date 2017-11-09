@@ -14,7 +14,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="<?php echo base_url('dosen/Menudupak/tambahPenelitian') ?>" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Penelitian</a>
+              <a href="<?php echo base_url('dosen/Penelitian/tambah') ?>" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Penelitian</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -22,7 +22,6 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>NIP</th>
                   <th>Unsur Kegiatan</th>
                   <th>Sub Kegiatan</th>
                   <th>Uraian Kegiatan</th>
@@ -32,7 +31,6 @@
                   <th>Jumlah Volume Kegiatan</th>
                   <th>Angka Kredit</th>
                   <th>Jumlah Angka Kredit</th>
-                  <th>File</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -40,7 +38,6 @@
                    <?php foreach ($penelitian as $pen):?>
                 <tr>
                   <td><?php echo $pen['id_penelitian'] ?></td>
-                  <td><?php echo $pen['nip'];?></td>
                   <td><?php echo $pen['nama_unsur'];?></td>
                   <td><?php echo $pen['nama_sub'];?></td>
                   <td><?php echo $pen['nama_uraian'];?></td>
@@ -50,7 +47,6 @@
                   <td><?php echo $pen['jumlah_volume'];?></td>
                   <td><?php echo $pen['angka_kredit'];?></td>
                   <td><?php echo $pen['jumlah_ak'];?></td>
-                  <td></td> 
                   <td>
                     <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
                     <a href="" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>

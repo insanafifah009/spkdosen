@@ -20,7 +20,7 @@
               <h2 class="box-title">Tambah Data Pendidikan</h2>
             </div>
             <div class="box-body">
-              <form method="POST" action="<?php echo base_url('dosen/Pendidikan/simpanPendidikan')?>" class="form-vertical">
+              <?= form_open_multipart('dosen/Pendidikan/simpanPendidikan',['class'=>'form-vertical'])?>
                <div class="form-group">
                   <label>Sub Kegiatan Pendidikan</label>
                   <select class="form-control" name="subPendidikan" id="subPendidikan">
@@ -53,12 +53,12 @@
               </div>
               <div class="form-group">
                    <label>Lampiran SK</label>
-                     <input type="file" id="t" name="userfile">
+                     <input type="file" name="userfile">
               </div>
             <div class="form-group">
               <button type="submit" class="btn btn-primary btn-flat"><i class="glyphicon glyphicon-save"></i> Simpan</button>
             </div>
-          </form>
+          <?= form_close();?>
             </div>
             <!-- form start -->
 

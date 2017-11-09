@@ -35,36 +35,49 @@
 
 	public function simpanPendidikan()
 	{
-		$uraian = $this->input->post('cb_uraian');
-		$kredit = $this->pendidikan_model->getAngkaKredit($uraian);
-		$angkaKredit = "";
-		foreach ($kredit as $row) {
-			$angkaKredit = $row['angka_kredit'];
-		}
-
-		$dosen = $this->session->userdata('id');
-		$pendidikan = $this->input->post('subPendidikan');
-		$tempat = $this->input->post('txt_tempat');
-		$tanggal = $this->input->post('txt_tgl');
-		$satuanhasil = $this->input->post('txt_satuan');
-		$volume = $this->input->post('txt_jumlahv');
-		$aKredit = $angkaKredit * $volume;
+		$config['upload_path'] = './docs/';
+		$config['allowed_types'] = 'pdf|doc';
+		$config['max_size']  = '1000';
 		
-		$data['id_dosen'] = $dosen;
-		$data['unsur'] = '1';
-		$data['sub'] = $pendidikan;
-		$data['uraian'] = $uraian;
-		$data['tempat'] = $tempat;
-		$data['tanggal'] = $tanggal;
-		$data['satuan_hasil'] = $satuanhasil;
-		$data['jumlah_volume'] = $volume;
-		$data['jumlah_ak'] = $aKredit;
+		$this->load->library('upload', $config);
+		
+		if ( ! $this->upload->do_upload()){
+			$error = array('error' => $this->upload->display_errors());
+		}
+		else{
+			$dokumen = $this->upload->data();
+			
+			$uraian = $this->input->post('cb_uraian');
+			$kredit = $this->pendidikan_model->getAngkaKredit($uraian);
+			$angkaKredit = "";
+			foreach ($kredit as $row) {
+				$angkaKredit = $row['angka_kredit'];
+			}
 
-		$result = $this->pendidikan_model->addTempat($data);
+			$dosen = $this->session->userdata('id');
+			$pendidikan = $this->input->post('subPendidikan');
+			$tempat = $this->input->post('txt_tempat');
+			$tanggal = $this->input->post('txt_tgl');
+			$satuanhasil = $this->input->post('txt_satuan');
+			$volume = $this->input->post('txt_jumlahv');
+			
+			$data['id_dosen'] = $dosen;
+			$data['unsur'] = '1';
+			$data['sub'] = $pendidikan;
+			$data['uraian'] = $uraian;
+			$data['tempat'] = $tempat;
+			$data['tanggal'] = $tanggal;
+			$data['satuan_hasil'] = $satuanhasil;
+			$data['jumlah_volume'] = $volume;
+			$data['jumlah_ak'] = $angkaKredit;
+			$data['lampiran'] = $dokumen['file_name'];
 
-		if ($result) {
-			$this->session->set_flashdata('sukses', 'Data Berhasil di tambahkan');
-			redirect('dosen/Pendidikan');
+			$result = $this->pendidikan_model->addTempat($data);
+
+			if ($result) {
+				$this->session->set_flashdata('sukses', 'Data Berhasil di tambahkan');
+				redirect('dosen/Pendidikan');
+			}
 		}
 	}
 

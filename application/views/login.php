@@ -57,11 +57,7 @@
         <!-- /.col -->
       </div>
     </form>
-
-    
-
-    <a href="#">Lupa Kata Sandi</a><br>
-    <a href="register.html" class="text-center">Daftar</a>
+    <a href="<?php echo base_url('login/Register');?>" class="text-center">Daftar sebagai reviewer</a>
 
   </div>
   <!-- /.login-box-body -->

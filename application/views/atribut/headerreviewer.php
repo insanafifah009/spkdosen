@@ -126,7 +126,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo base_url('reviewer/datapenelitian') ?>">
+          <a href="<?php echo base_url('reviewer/Penelitian') ?>">
             <i class="fa fa-user"></i> <span>Data Penelitian</span>
           </a>
         </li>

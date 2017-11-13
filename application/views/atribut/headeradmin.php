@@ -21,12 +21,8 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.css') ?>">
   <!-- jQuery 2.2.3 -->
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js'); ?>"></script>
-<<<<<<< HEAD
-
-=======
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/dataTables.bootstrap.css') ?>"></script>
->>>>>>> 2752dd681e68c08a9750b2849bddb13327264dee
 <!-- Bootstrap 3.3.6 -->
 <script type="text/javascript" src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <!-- AdminLTE App -->

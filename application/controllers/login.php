@@ -1,49 +1,92 @@
-<?php 
+<?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
-	function __construct(){
-		parent::__construct();
-		$this->load->model('Login_model','logg');
-	}
+    function __construct() {
+        parent::__construct();
+        $this->load->model('Login_model', 'logg');
+    }
 
-	public function filter($data)
- 	{
- 		$data = preg_replace('/[^a-zA-Z0-9]/', '', $data);
- 		return $data;
- 		unset($data);
- 	}
+    public function filter($data) {
+        $data = preg_replace('/[^a-zA-Z0-9]/', '', $data);
+        return $data;
+        unset($data);
+    }
 
-	public function index()
-	{
-		$this->load->view('login');
-	}
+    public function index() {
+        $this->load->view('login');
+    }
+    public function Register(){
+        $data['fakultas'] = $this->logg->getFakultas();
+        $this->load->view('Register', $data);
+    }
 
-	public function authentification()
-	{
-		$username = $this->input->post('txtusername');
-		$password = $this->input->post('txtpassword');
+    public function authentification() {
+        $username = $this->input->post('txtusername');
+        $password = sha1($this->input->post('txtpassword'));
 
-		$username = $this->filter($username);
-		$password = $this->filter($password);
+        $username = $this->filter($username);
+        $password = $this->filter($password);
 
-		$data = $this->logg->login($username, $password)->row();
-		if ($data>0) {
-			$session = array(
-				"username"=>$data->username,
-				"level"=>$data->level,
-				"nip"=>$data->nip,
-				"id"=>$data->id_dosen);
-			$this->session->set_userdata($session);
-			console.log($session);
-			if ($this->session->userdata('level')=='1') {
-				redirect('Dashboard');
-			}else{
-				redirect('Login');
-			}
-		}
+        $data = $this->logg->login($username, $password)->row();
+        if ($data > 0) {
+            $session = array(
+                "username" => $data->username,
+                "level" => $data->level,
+                "nip" => $data->nip,
+                "id" => $data->id_dosen);
+            $this->session->set_userdata($session);
+            console . log($session);
+            if ($this->session->userdata('level') == '1') {
+                redirect('Dashboard');
+            }else if($this->session->userdata('level')=='2'){
+                redirect('reviewer/Reviewer');
+            }else {
+                redirect('Login');
+            }
+        }
+    }
 
-	}
-	
- } ?>
+    public function getBidang()
+    {
+        $bidang = $_GET['bidang'];
+        $dataBidang = $this->logg->getDataBidang($bidang);
+        echo json_encode($dataBidang);
+    }
+
+    public function getJurusan()
+    {
+        $bidang = $_GET['bidang'];
+        $dataBidang = $this->logg->getDataJurusan($bidang);
+        echo json_encode($dataBidang);
+    }
+
+    public function daftarReviewer()
+    {
+        $this->form_validation->set_rules('nama', 'Nama kurang', 'required|min_length[5]|max_length[50]');
+        $this->form_validation->set_rules('fakultas', 'Fakultas belum dipilih', 'required');
+        $this->form_validation->set_rules('jabatan', 'Jabatan belum dipilih', 'required');
+        $this->form_validation->set_rules('bidangilmu', 'Bidang ilmu belum dipilih', 'required');
+        $this->form_validation->set_rules('username', 'Username kurang', 'required|min_length[5]');
+        $this->form_validation->set_rules('password', 'Password Kurang', 'required|min_length[8]');
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('Register');
+        } else {
+            $data['nama'] = $this->input->post('nama');
+            $data['bidang'] = $this->input->post('bidangilmu');
+            $data['jurusan'] = $this->input->post('jurusan');
+            $data['jabatan'] = $this->input->post('jabatan');
+            $data['username'] = $this->input->post('username');
+            $data['password'] = sha1($this->input->post('password'));
+            $data['level'] = '2';
+            $this->logg->newReviewer($data);
+            $this->session->set_flashdata('sukses', 'Data Berhasil diregistrasi.\nSilahkan Login untuk melakukan review jurnal');
+            redirect('login/Register','refresh');
+        }
+    }
+
+}
+
+?>

@@ -28,6 +28,15 @@ class Penelitian_model extends CI_model
 		$query =$this->db->query('SELECT * FROM penelitian JOIN unsur_kegiatan ON penelitian.`unsur`=unsur_kegiatan.`id_unsur` JOIN sub_kegiatan ON penelitian.`sub`=sub_kegiatan.`id_sub` JOIN `uraian_kegiatan` ON penelitian.`uraian`=`uraian_kegiatan`.`id_uraian` JOIN dosen ON penelitian.`id_dosen`=dosen.`id_dosen`');
 		return $query->result_array();
 	}
+
+	public function reviewJurnal($id)
+	{
+		$this->db->select('*');
+		$this->db->from('penelitian');
+		$this->db->join('dosen', 'penelitian.id_dosen = dosen.id_dosen', 'left');
+		$data = $this->db->get();
+		return $data;
+	}
 	
 	public function getSubPenelitian()
 	{

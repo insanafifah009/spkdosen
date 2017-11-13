@@ -15,7 +15,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h2 class="box-title">Data Pendidikan anda <?php echo $this->session->userdata('username') ?></h2>
+              <h2 class="box-title">Data Pendidikan <?php echo $this->session->userdata('username') ?></h2>
               <a href="<?php echo base_url('dosen/Pendidikan/tambahPendidikan') ?>" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Pendidikan</a>
             </div>
             

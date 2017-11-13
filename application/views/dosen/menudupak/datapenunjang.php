@@ -14,11 +14,13 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
+              <h2 class="box-title">Data Penunjang <?php echo $this->session->userdata('username') ?></h2>
               <a href="<?php echo base_url('dosen/Penunjang/tambahPenunjang') ?>" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Penunjang</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="exampleb 2" class="table table-bordered table-hover">
+              <div class="alert alert-success" style="display: none;"></div>
+              <table id="tabelPenunjang" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>No</th>
@@ -54,6 +56,7 @@
 
                 </tr>
                 <?php endforeach;?>
+                
                 </tbody>
                 </table>
             </div>
@@ -61,9 +64,13 @@
         </div>
       </div>
     </section>
-  </div>
-  <script type="text/javascript">
-    <?php if ($this->session->flashdata('sukses')): ?>
-      $('.alert-success').html('<?php echo $this->session->flashdata('sukses') ?>').fadeIn();
-    <?php endif ?>
-  </script>
+<script type="text/javascript">
+  <?php if ($this->session->flashdata('sukses')): ?>
+  $('.alert-success').html('<?php echo $this->session->flashdata('sukses') ?>').fadeIn();
+<?php endif ?>
+</script>
+<script type="text/javascript">
+  $(function(){
+    $('#tabelPenunjang').DataTable();
+  });
+</script>

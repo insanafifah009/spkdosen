@@ -84,6 +84,7 @@
                 </p>
               </li>
               <!-- Menu Footer-->
+              
               <li class="user-footer">
                 <div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
@@ -123,6 +124,11 @@
       <ul class="sidebar-menu">
         <li class="header">DOSEN</li>
         <li class="treeview">
+                  <a href="<?php echo base_url('dosen/Dosen'); ?> ">
+                    <i class="fa fa-dashboard"></i> <span>Beranda</span>
+                  </a>
+        </li>
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Profil Dosen</span>
             <span class="pull-right-container">
@@ -160,81 +166,6 @@
             <li><a href="<?php echo base_url('dosen/Penunjang') ?>"><i class="fa fa-circle-o"></i> Data Penunjang</a></li>
           </ul>
         </li>
-
-
-     <!-- PUNYA DOSEN -->
-
-        <!-- <ul class="sidebar-menu">
-        <li class="header">ADMIN</li>
-        <li class="treeview"></li>
-        </ul>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Daftar Dosen</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('dosen/InputDosen') ?>"><i class="fa fa-circle-o"></i> Profil </a></li>
-            <li><a href="<?php echo base_url('dosen/InputDosen/edit') ?>"><i class="fa fa-circle-o"></i> Edit Profil </a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Menu Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-               <li><a href="<?php echo base_url('admin/Menumaster') ?>"><i class="fa fa-circle-o"></i> Unsur Kegiatan</a></li>
-            <li><a href="<?php echo base_url('admin/Menumaster/indexa') ?>"><i class="fa fa-circle-o"></i> Sub Kegiatan</a></li>
-            <li><a href="<?php echo base_url('admin/Menumaster/indexb') ?>"><i class="fa fa-circle-o"></i> Uraian Kegiatan</a></li>
-          </ul>
-        </li>
-
-          <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Lampiran</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-              <li><a href="<?php echo base_url('Lampiran') ?>"><i class="fa fa-circle-o"></i>Lampiran 1</a></li>
-            <li><a href="<?php echo base_url('Lampiran/index1') ?>"><i class="fa fa-circle-o"></i>Lampiran 2</a></li>
-            <li><a href="<?php echo base_url('Lampiran/index2') ?>"><i class="fa fa-circle-o"></i>Lampiran 3</a></li>
-            <li><a href="<?php echo base_url('Lampiran/index3') ?>"><i class="fa fa-circle-o"></i>Lampiran 4</a></li>
-            <li><a href="<?php echo base_url('Lampiran/index4') ?>"><i class="fa fa-circle-o"></i>Lampiran 5</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Lihat Angka Kredit</span>
-          </a>
-          <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('LihatAK') ?>"><i class="fa fa-circle-o"></i>Lihat Angka Kredit</a></li>
-          </ul>
-        </li>
-
-          
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Data Pengajuan Tervalidasi</span>
-          </a>
-        </li> -->
-        
-                <li class="treeview">
-             <a href="#">
-            <i class="fa fa-folder"></i> <span>Logout</span>
-          </a>
-        </li>
-
-     
         
       </ul>
     </section>

@@ -21,12 +21,8 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.css') ?>">
   <!-- jQuery 2.2.3 -->
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js'); ?>"></script>
-<<<<<<< HEAD
-
-=======
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/dataTables.bootstrap.css') ?>"></script>
->>>>>>> 2752dd681e68c08a9750b2849bddb13327264dee
 <!-- Bootstrap 3.3.6 -->
 <script type="text/javascript" src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <!-- AdminLTE App -->
@@ -123,41 +119,19 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">ADMIN</li>
+        <li class="header">REVIEWER</li>
         <li class="treeview">
-          <a href="<?php echo base_url('admin/Admin'); ?> ">
+          <a href="<?php echo base_url('reviewer/Reviewer'); ?> ">
             <i class="fa fa-dashboard"></i> <span>Beranda</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo base_url('admin/Dosen') ?>">
-            <i class="fa fa-user"></i> <span>Data Dosen</span>
+          <a href="<?php echo base_url('reviewer/datapenelitian') ?>">
+            <i class="fa fa-user"></i> <span>Data Penelitian</span>
           </a>
         </li>
 
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-th-large"></i> <span>Menu Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('admin/Kegiatan') ?>"><i class="fa fa-circle-o"></i> Unsur Kegiatan</a></li>
-            <li><a href="<?php echo base_url('admin/Menumaster/indexa') ?>"><i class="fa fa-circle-o"></i> Sub Kegiatan</a></li>
-            <li><a href="<?php echo base_url('admin/Menumaster/indexb') ?>"><i class="fa fa-circle-o"></i> Uraian Kegiatan</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-th"></i> <span>Lihat Angka Kredit</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Data Pengajuan Tervalidasi</span>
-          </a>
-        </li>
+        
       </ul>
     </section>
     <!-- /.sidebar -->

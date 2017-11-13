@@ -10,10 +10,10 @@
     	<div class="box withborder">
     		<div class="box-header">
     			<h2 class="box-title">Data Dosen</h2>
-    			<a class="btn btn-info btn-flat pull-right" href="<?php echo base_url('admin/Dosen/Tambah') ?>"><i class="glyphicon glyphicon-plus-sign"></i> Tambah</a>
+    			<a class="btn btn-primary btn-flat pull-right" href="<?php echo base_url('admin/Dosen/Tambah') ?>"><i class="glyphicon glyphicon-plus-sign"></i> Tambah</a>
     		</div>
     		<div class="box-body">
-    			<table class="table table-bordered table-resposive table-hover">
+    			<table id="tabeldosen" class="table table-bordered table-hover">
     				<thead>
     					<tr>
     						<td>NIP</td>
@@ -43,3 +43,8 @@
     	</div>
     </section>
 </div>
+<script type="text/javascript">
+  $(function(){
+    $('#tabeldosen').DataTable();
+  });
+</script>

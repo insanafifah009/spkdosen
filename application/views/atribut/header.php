@@ -156,8 +156,8 @@
            <li><a href="<?php echo base_url('dosen/Pendidikan') ?>"><i class="fa fa-circle-o"></i>  Data Pendidikan</a></li>
             <li><a href="<?php echo base_url('dosen/Pengajaran') ?>"><i class="fa fa-circle-o"></i> Data Pengajaran</a></li>
             <li><a href="<?php echo base_url('dosen/Penelitian') ?>"><i class="fa fa-circle-o"></i> Data Penelitian</a></li>
-            <li><a href="<?php echo base_url('dosen/Menudupak/pengabdian') ?>"><i class="fa fa-circle-o"></i> Data Pengabdian</a></li>
-            <li><a href="<?php echo base_url('dosen/Menudupak/penunjang') ?>"><i class="fa fa-circle-o"></i> Data Penunjang</a></li>
+            <li><a href="<?php echo base_url('dosen/Pengabdian') ?>"><i class="fa fa-circle-o"></i> Data Pengabdian</a></li>
+            <li><a href="<?php echo base_url('dosen/Penunjang') ?>"><i class="fa fa-circle-o"></i> Data Penunjang</a></li>
           </ul>
         </li>
 

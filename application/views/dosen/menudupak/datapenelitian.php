@@ -22,8 +22,6 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Unsur Kegiatan</th>
-                  <th>Sub Kegiatan</th>
                   <th>Uraian Kegiatan</th>
                   <th>Judul Penelitian</th>
                   <th>Link</th>
@@ -38,8 +36,6 @@
                    <?php foreach ($penelitian as $pen):?>
                 <tr>
                   <td><?php echo $pen['id_penelitian'] ?></td>
-                  <td><?php echo $pen['nama_unsur'];?></td>
-                  <td><?php echo $pen['nama_sub'];?></td>
                   <td><?php echo $pen['nama_uraian'];?></td>
                   <td><?php echo $pen['judul'];?></td>
                   <td><?php echo $pen['link'];?></td>

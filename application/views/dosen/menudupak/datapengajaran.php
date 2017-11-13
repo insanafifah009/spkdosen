@@ -23,12 +23,11 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Sub Kegiatan</th>
                   <th>Uraian Kegiatan</th>
                   <th>Mata Kuliah</th>
                   <th>SKS</th>
                   <th>Tahun Akademik</th>
-                  <th>angka kredit</th>
+                  <th>Angka kredit</th>
                   <th>Jumlah Angka kredit</th>
                   <th>Aksi</th>
                 </tr>
@@ -37,7 +36,6 @@
                    <?php foreach ($pengajaran as $pen):?>
                 <tr>
                   <td><?php echo $pen['id_pengajaran'] ?></td>
-                  <td><?php echo $pen['nama_sub'];?></td>
                   <td><?php echo $pen['nama_uraian'];?></td>
                   <td><?php echo $pen['mk'];?></td>
                   <td><?php echo $pen['sks'];?></td>

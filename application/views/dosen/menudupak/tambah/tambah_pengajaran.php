@@ -72,9 +72,9 @@
                 <label>Tempat/Instansi</label>
                 <input type="text" class="form-control" placeholder="Tempat/Instansi" name="txt_tempat">
               </div>
-              <div class="form-group">
-                <label>Tanggal</label>
-                <input type="text" class="form-control" placeholder="Tanggal" name="txt_tgl">
+              <div class="form-group required">
+                   <label>Tanggal</label>
+                   <input type="date" name="txt_tgl" class="form-control">
               </div>
               <div class="form-group required">
                 <label>Satuan Hasil</label>

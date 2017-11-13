@@ -14,21 +14,21 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
+              <h2 class="box-title">Data Pengajaran <?php echo $this->session->userdata('username') ?></h2>
               <a href="<?php echo base_url('dosen/Pengajaran/tambahPengajaran') ?>" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Pengajaran</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="alert alert-success" style="display: none;"></div>
-              <table id="exampleb 2" class="table table-bordered table-hover">
+              <table id="tabelPengajaran" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Sub Kegiatan</th>
                   <th>Uraian Kegiatan</th>
                   <th>Mata Kuliah</th>
                   <th>SKS</th>
                   <th>Tahun Akademik</th>
-                  <th>angka kredit</th>
+                  <th>Angka kredit</th>
                   <th>Jumlah Angka kredit</th>
                   <th>Aksi</th>
                 </tr>
@@ -37,7 +37,6 @@
                    <?php foreach ($pengajaran as $pen):?>
                 <tr>
                   <td><?php echo $pen['id_pengajaran'] ?></td>
-                  <td><?php echo $pen['nama_sub'];?></td>
                   <td><?php echo $pen['nama_uraian'];?></td>
                   <td><?php echo $pen['mk'];?></td>
                   <td><?php echo $pen['sks'];?></td>
@@ -50,7 +49,8 @@
                   </td>
 
                 </tr>
-                <?php endforeach;?>
+               <?php endforeach;?>
+                
                 </tbody>
                 </table>
             </div>
@@ -58,9 +58,13 @@
         </div>
       </div>
     </section>
-  </div>
-  <script type="text/javascript">
-    <?php if ($this->session->flashdata('sukses')): ?>
-      $('.alert-success').html('<?php echo $this->session->flashdata('sukses') ?>').fadeIn();
-    <?php endif ?>
-  </script>
+<script type="text/javascript">
+  <?php if ($this->session->flashdata('sukses')): ?>
+  $('.alert-success').html('<?php echo $this->session->flashdata('sukses') ?>').fadeIn();
+<?php endif ?>
+</script>
+<script type="text/javascript">
+  $(function(){
+    $('#tabelPengajaran').DataTable();
+  });
+</script>

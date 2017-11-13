@@ -8,157 +8,87 @@
       </ol>
     </section>
     <!-- Main content -->
+
     <section class="content">
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
           <!-- general form elements -->
-          <div class="box box-primary">
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form method="POST" action="<?php echo base_url('dosen/Menudupak/addKegiatan_p')?>">
-              <div class="box-body">
-                <div class="form-group required">
-                   <label class="col-sm-2">NIP/NIDN Dosen</label>
-                   <div class="col-md-12">
-                   <input type="text" class="form-control" placeholder="Masukkan NIP/NIDN" name="txt_nip" value="<?php echo $this->session->userdata('nip') ?>" readonly>
-                   </div>
-              </div>
-                <div class="form-group">
-                  
-                  <label class="col-sm-4 " for="">Unsur Kegiatan Penunjang</label>
-                  <div class="col-md-12">
-                  <select class="form-control" name="cb_unsur" id="cb_unsur">
-                    <option value="">Pilih Unsur</option>
-                    <?php foreach ($penelitian as $tes):?>
-                      <option value="<?php echo $tes['id_unsur']?>"> <?php echo $tes ['nama_unsur']?> </option>
+     <div class="box">
+       <div class="box-header with-border">
+         <h2 class="box-title">Tambah Unsur Penunjang</h2>
+       </div>
+       <div class="box-body">
+         <?= form_open_multipart('dosen/Penunjang/addMK',['class'=>'form-vertical'])?>
+               <div class="form-group">
+                  <label>Sub Kegiatan Penunjang</label>
+                  <select class="form-control" name="subPenunjang" id="subPenunjang">
+                    <option value="">Pilih Sub Kegiatan</option>
+                    <?php foreach ($penunjang as $row): ?>
+                      <option value="<?php echo $row['id_sub'] ?>"><?php echo $row['nama_sub'] ?></option>
                     <?php endforeach ?>
                   </select>
-                </div>
-              </div>
-               <div class="form-group">
-                  <label class="col-sm-4" for="">Sub Kegiatan Penunjang</label>
-                  <div class="col-md-12">
-                  <select class="form-control" nama="cb_detail" id="cb_detail" placeholder=" Pilih Sub Kegiatan Penunjang">
-                    <option value="">Pilih Sub Kegiatan</option>
-                  </select>
-                </div>
               </div>
               <div class="form-group">
-                  <label class="col-sm-4" for="">Uraian Kegiatan Penunjang</label>
-                  <div class="col-md-12">
-                  <select class="form-control" nama="cb_uraian" id="cb_uraian" placeholder="Pilih Uraian kegiatan">
+                  <label>Uraian Penunjang</label>
+                  <select class="form-control" name="cb_uraian" id="cb_uraian">
                     <option value="">Pilih Uraian Kegiatan</option>
                   </select>
-                </div>
               </div>
               <div class="form-group">
-                   <label class="col-sm-12">Kegiatan</label>
-                   <div class="col-md-12">
+                   <label>Kegiatan</label>
                    <input type="text" id="exampleInputFile" placeholder="Kegiatan Penunjang" class="form-control" name="txt_keg">
-                   </div>
               </div>
               <div class="form-group">
-                   <label class="col-sm-2">Tingkat/Kedudukan</label>
-                   <div class="col-md-12">
+                   <label>Tingkat/Kedudukan</label>
                    <input type="text" id="t" placeholder="Tingkat/Kedudukan" class="form-control" name="txt_tingkat">
-                   </div>
               </div>
               <div class="form-group">
-                   <label class="col-sm-2">Tempat</label>
-                   <div class="col-md-12">
+                   <label>Tempat</label>
                    <input type="text" id="t" class="form-control" placeholder="Tempat" name="txt_tempat">
-                   </div>
               </div>
               <div class="form-group">
-                   <label class="col-sm-2">Tanggal</label>
-                   <div class="col-md-12">
-                   <input type="text" id="t" class="form-control" placeholder="Tanggal" name="txt_tgl">
-                   </div>
+                   <label>Tanggal</label>
+                   <input type="date" name="txt_tgl" class="form-control">
               </div>
               <div class="form-group required">
-                   <label class="col-sm-2">Satuan Hasil</label>
-                   <div class="col-md-12">
+                   <label>Satuan Hasil</label>
                    <input type="text" name="txt_satuan" id="exampleInputFile" class="form-control">
-                   </div>
               </div>
               <div class="form-group required">
-                   <label class="col-sm-2">Jumlah Volume Kegiatan</label>
-                   <div class="col-md-12">
+                   <label  >Jumlah Volume Kegiatan</label>
                    <input type="text" name="txt_jumlahv" id="exampleInputFile" class="form-control">
-                   </div>
+              </div>
+             <div class="form-group">
+                <label>Lampiran SK</label>
+                <input type="file" name="userfile" class="form-control">
               </div>
               <div class="form-group">
-                   <label class="col-sm-2">Angka Kredit</label>
-                   <div class="col-md-12">
-                     <input type="text" name="txt_ak" id="exampleInputFile" class="form-control">
-                   </div>
+                  <button type="submit" class="btn btn-primary btn-flat"><i class="glyphicon glyphicon-save"></i> Simpan</button>
+                  <a href="<?php echo base_url('dosen/Penunjang') ?>" class="btn btn-warning btn-flat"><i class="glyphicon glyphicon-remove"></i> Batal</a>
               </div>
-              <div class="form-group">
-                   <label class="col-sm-2">Jumlah Angka Kredit</label>
-                   <div class="col-md-12">
-                     <input type="text" name="txt_jumlahak" id="exampleInputFile" class="form-control">
-                   </div>
-              </div>
-              <div class="form-group">
-                   <label class="col-sm-2">Lampiran SK</label>
-                   <div class="col-md-12">
-                     <input type="file" id="t" name="txt_lamp">
-                   </div>
-              </div>
-          </div>
-
-            <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-            
-          </form>
-        </div>
-      </div>
-    </div>
+              <?= form_close();?>
+       </div>
+     </div>     
   </section>
 
 </div>
     <script type="text/javascript">
-            $(document).ready(function(){
-              $.ajaxSetup({
-                type : "POST",
-                url : "<?php echo base_url("dosen/menudupak/get_unsur_penunjang");
-                ?>",
-                chace: false,
-              });
-
-               $("#cb_unsur").change(function() {
-                var nilai = $(this).val();
-                if (nilai > 0){
-                  $.ajax({
-                    data: {
-                      modul: 'unsur',
-                      id: nilai
-                    },
-                    success: function(respond)
-                    {
-                      $("#cb_detail").html(respond);
-                    }
-                    })
-                  }
-                });
-
-                $("#cb_detail").change(function() {
-                var nilai = $(this).val();
-                if (nilai > 0){
-                  $.ajax({
-                    data: {
-                      modul: 'uraian',
-                      id: nilai
-                    },
-                    success: function(respond)
-                    {
-                      $("#cb_uraian").html(respond);
-                    }
-                    })
-                  }
-                });
-
-            });
-          </script>
+    $(document).ready(function(){
+      $('#subPenunjang').change(function(){
+        var penunjang = $('#subPenunjang').val();
+        $.ajax({
+          url: '<?php echo base_url('dosen/Penunjang/getUraian') ?>',
+          type: 'GET',
+          data: 'penunjang='+penunjang,
+          dataType: 'json',
+          success: function(data){
+            var uraian = `<select id="cb_uraian" name="cb_uraian">
+            <option value="">Pilih uraian</option>`;
+            for (var i = 0; i < data.length; i++) {
+              uraian+= '<option value="'+data[i].id_uraian+'">'+data[i].nama_uraian+'</option>';
+            }
+            uraian+='</select>';
+            $('#cb_uraian').html(uraian);
+          }
+        });
+      });
+    });
+  </script>

@@ -31,36 +31,7 @@ class Menudupak extends CI_Controller {
 			redirect('login');
 		}
 	}
-		
-	public function pengabdian()
-	{
-		$data['pengabdian']=$this->pengabdian_model->get_pengabdian();
-		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/datapengabdian',$data);
-		$this->load->view('atribut/footer');
-	}
-	public function tambahPengabdian()
-	{
-		$data['pengabdian']=$this->unsur_model->getUnsur();
-		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/tambah/tambah_pengabdian',$data);
-		$this->load->view('atribut/footer');
-	}
-	public function penunjang()
-	{
-		$data['penunjang']=$this->penunjang_model->get_penunjang();
-		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/datapenunjang',$data);
-		$this->load->view('atribut/footer');
-	}
-	public function tambahPenunjang()
-	{
-		$data['penunjang']=$this->unsur_model->getUnsur();
-		$this->load->view('atribut/header');
-		$this->load->view('dosen/menudupak/tambah/tambah_penunjang',$data);
-		$this->load->view('atribut/footer');
-	}
-
+	
 	public function editPendidikan(){
 		$id=$this->input->post('edit_idpendidikan');
 		$data=array(
@@ -97,26 +68,6 @@ class Menudupak extends CI_Controller {
 		$this->load->view('atribut/footer');
 	}
 	
-	public function addKegiatan()
-	{
-		$kegiatan = $this->input->post('txt_keg');
-		$data['id_dosen'] = $this->session->userdata('id');
-		$data['unsur'] = $this->input->post('cb_unsur');
-		$data['sub'] = $this->input->post('cb_detail');
-		$data['uraian'] = $this->input->post('cb_uraian');
-		$data['kegiatan'] = $this->input->post('txt_keg');
-		$data['bentuk']= $this->input->post('txt_bentuk');
-		$data['tempat'] = $this->input->post('txt_tempat');
-		$data['tanggal']= $this->input->post('txt_tgl');
-		$data['satuan_hasil'] = $this->input->post('txt_satuan');
-		$data['jumlah_volume'] = $this->input->post('txt_jumlahv');
-		$data['angka_kredit'] = $this->input->post('txt_ak');
-		$data['jumlah_ak']= $this->input->post('txt_jumlahak');
-		$data['lampiran']= $this->input->post('txt_lamp');
-
-		$result = $this->pengabdian_model->addKegiatan($data);
-		redirect('dosen/Menudupak');
-	}
 	public function getKegiatan($kegiatan)
 	{
 		$data['pengabdian']=$this->pengabdian_model->getKegiatan($kegiatan)->row();
@@ -124,26 +75,7 @@ class Menudupak extends CI_Controller {
 		$this->load->view('dosen/menudupak/tambah/tambah_pengabdian',$data);
 		$this->load->view('atribut/footer');
 	}
-	public function addKegiatan_p()
-	{
-		$kegiatan_p = $this->input->post('txt_judul');
-		$data['id_dosen'] = $this->session->userdata('id');
-		$data['unsur'] = $this->input->post('cb_unsur');
-		$data['sub'] = $this->input->post('cb_detail');
-		$data['uraian'] = $this->input->post('cb_uraian');
-		$data['kegiatan'] = $this->input->post('txt_keg');
-		$data['tingkat']= $this->input->post('txt_tingkat');
-		$data['tempat'] = $this->input->post('txt_tempat');
-		$data['tanggal']= $this->input->post('txt_tgl');
-		$data['satuan_hasil'] = $this->input->post('txt_satuan');
-		$data['jumlah_volume'] = $this->input->post('txt_jumlahv');
-		$data['angka_kredit'] = $this->input->post('txt_ak');
-		$data['jumlah_ak']= $this->input->post('txt_jumlahak');
-		$data['lampiran']= $this->input->post('txt_lamp');
-
-		$result = $this->penunjang_model->addKegiatan_p($data);
-		redirect('dosen/Menudupak');
-	}
+	
 	public function getKegiatan_p($kegiatan_p)
 	{
 		$data['penunjang']=$this->penunjang_model->getKegiatan_p($kegiatan_p)->row();

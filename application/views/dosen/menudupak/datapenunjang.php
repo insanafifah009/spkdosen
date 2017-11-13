@@ -14,34 +14,31 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="<?php echo base_url('dosen/Menudupak/tambahPenunjang') ?>" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Penunjang</a>
+              <h2 class="box-title">Data Penunjang <?php echo $this->session->userdata('username') ?></h2>
+              <a href="<?php echo base_url('dosen/Penunjang/tambahPenunjang') ?>" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Penunjang</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="exampleb 2" class="table table-bordered table-hover">
+              <div class="alert alert-success" style="display: none;"></div>
+              <table id="tabelPenunjang" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Unsur Kegiatan</th>
-                  <th>Sub Kegiatan</th>
                   <th>Uraian Kegiatan</th>
                   <th>Kegiatan</th>
                   <th>Tingkat/Kedudukan</th>
                   <th>Tempat</th>
-                  <th>Tanggal</th><th>Satuan Hasil</th>
+                  <th>Tanggal</th>
+                  <th>Satuan Hasil</th>
                   <th>Jumlah Volume Kegiatan</th>
                   <th>Angka Kredit</th>
                   <th>Jumlah Angka Kredit</th>
-                  <th>File</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody> <?php foreach ($penunjang as $pend):?>
                 <tr>
                   <td><?php echo $pend['id_penunjang'] ?></td>
-                  <td><?php echo $pend['nip'];?></td>
-                  <td><?php echo $pend['nama_unsur'];?></td>
-                  <td><?php echo $pend['nama_sub'];?></td>
                   <td><?php echo $pend['nama_uraian'];?></td>
                   <td><?php echo $pend['kegiatan'];?></td>
                   <td><?php echo $pend['tingkat'];?></td>
@@ -59,6 +56,7 @@
 
                 </tr>
                 <?php endforeach;?>
+                
                 </tbody>
                 </table>
             </div>
@@ -66,4 +64,13 @@
         </div>
       </div>
     </section>
-  </div>
+<script type="text/javascript">
+  <?php if ($this->session->flashdata('sukses')): ?>
+  $('.alert-success').html('<?php echo $this->session->flashdata('sukses') ?>').fadeIn();
+<?php endif ?>
+</script>
+<script type="text/javascript">
+  $(function(){
+    $('#tabelPenunjang').DataTable();
+  });
+</script>

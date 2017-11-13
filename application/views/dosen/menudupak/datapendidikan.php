@@ -15,7 +15,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h2 class="box-title">Data Pendidikan anda <?php echo $this->session->userdata('username') ?></h2>
+              <h2 class="box-title">Data Pendidikan <?php echo $this->session->userdata('username') ?></h2>
               <a href="<?php echo base_url('dosen/Pendidikan/tambahPendidikan') ?>" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Pendidikan</a>
             </div>
             
@@ -25,6 +25,7 @@
               <table id="tabelPendidikan" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                  <th>No</th>
                   <th>Uraian Kegiatan</th>
                   <th>Tempat/Instansi</th>
                   <th>Tanggal</th>
@@ -38,6 +39,7 @@
                 <tbody>
                    <?php foreach ($pendidikan as $pend):?>
                 <tr>
+                  <td><?php echo $pend['id_pendidikan'] ?></td>
                   <td><?php echo $pend['nama_uraian'];?></td>
                   <td><?php echo $pend['tempat'];?></td>
                   <td><?php echo $pend['tanggal'];?></td>

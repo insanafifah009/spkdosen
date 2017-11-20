@@ -32,6 +32,7 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Silahkan login terlebih dahulu</p>
+    <div class="alert alert-danger" style="display: none;"></div>
 
     <form action="<?php echo base_url('index.php/login/authentification')?>" method="post">
       <div class="form-group has-feedback">
@@ -78,6 +79,11 @@
       increaseArea: '20%' // optional
     });
   });
+</script>
+<script type="text/javascript">
+  <?php if ($this->session->flashdata('gagal')): ?>
+    $('.alert-danger').html(<?php echo $this->session->flashdata('gagal'); ?>).fadeIn();
+    <?php endif; ?>
 </script>
 </body>
 </html>

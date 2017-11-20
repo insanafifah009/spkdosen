@@ -32,13 +32,13 @@ class Login extends CI_Controller {
 
         $data = $this->logg->login($username, $password)->row();
         if ($data > 0) {
-            $session = array(
+            $session_data = array(
                 "username" => $data->username,
                 "level" => $data->level,
                 "nip" => $data->nip,
                 "id" => $data->id_dosen);
-            $this->session->set_userdata($session);
-            console . log($session);
+            $this->session->set_userdata($session_data);
+
             if ($this->session->userdata('level') == '1') {
                 redirect('Dashboard');
             }else if($this->session->userdata('level')=='2'){
@@ -46,6 +46,9 @@ class Login extends CI_Controller {
             }else {
                 redirect('Login');
             }
+        }else{
+            $this->session->set_flashdata('gagal', 'Anda tidak terdaftar dalam sistem');
+            redirect('Login');
         }
     }
 
@@ -85,6 +88,11 @@ class Login extends CI_Controller {
             $this->session->set_flashdata('sukses', 'Data Berhasil diregistrasi.\nSilahkan Login untuk melakukan review jurnal');
             redirect('login/Register','refresh');
         }
+    }
+
+    public function logout()
+    {
+        
     }
 
 }

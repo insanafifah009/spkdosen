@@ -133,7 +133,7 @@ CREATE TABLE `pendidikan` (
   CONSTRAINT `fk_sub1` FOREIGN KEY (`sub`) REFERENCES `sub_kegiatan` (`id_sub`),
   CONSTRAINT `fk_unsur1` FOREIGN KEY (`unsur`) REFERENCES `unsur_kegiatan` (`id_unsur`),
   CONSTRAINT `fk_uraian1` FOREIGN KEY (`uraian`) REFERENCES `uraian_kegiatan` (`id_uraian`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `pendidikan` */
 
@@ -224,7 +224,7 @@ CREATE TABLE `pengajaran` (
   CONSTRAINT `fk_sub4` FOREIGN KEY (`sub`) REFERENCES `sub_kegiatan` (`id_sub`),
   CONSTRAINT `fk_unsur4` FOREIGN KEY (`unsur`) REFERENCES `unsur_kegiatan` (`id_unsur`),
   CONSTRAINT `fk_uraian4` FOREIGN KEY (`uraian`) REFERENCES `uraian_kegiatan` (`id_uraian`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `pengajaran` */
 

@@ -44,6 +44,7 @@ class Login extends CI_Controller {
             }else if($this->session->userdata('level')=='2'){
                 redirect('reviewer/Reviewer');
             }else {
+                $this->session->set_flashdata('gagal', 'Anda tidak terdaftar dalam sistem');
                 redirect('Login');
             }
         }else{

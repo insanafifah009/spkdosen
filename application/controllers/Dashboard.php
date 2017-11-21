@@ -17,4 +17,5 @@ class Dashboard extends CI_Controller {
 		$this->load->view('tes');
 		$this->load->view('atribut/footer');
 	}
+	
 }

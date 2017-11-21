@@ -27,7 +27,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?php echo base_url()?>assets/index2.html"><b>SPK</b>Dosen</a>
+    <a href="<?php echo base_url('Login')?>"><b>SPK</b>Dosen</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -81,9 +81,11 @@
   });
 </script>
 <script type="text/javascript">
-  <?php if ($this->session->flashdata('gagal')): ?>
-    $('.alert-danger').html(<?php echo $this->session->flashdata('gagal'); ?>).fadeIn();
+  $(function(){
+    <?php if ($this->session->flashdata('gagal')): ?>
+    $('.alert-danger').html('<?php echo $this->session->flashdata('gagal'); ?>').fadeIn();
     <?php endif; ?>
+  });
 </script>
 </body>
 </html>

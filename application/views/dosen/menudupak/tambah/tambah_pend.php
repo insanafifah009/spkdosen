@@ -47,10 +47,6 @@
                    <label>Satuan Hasil</label>
                    <input type="text" name="txt_satuan" class="form-control" placeholder="satuan hasil">
               </div>
-              <div class="form-group required">
-                   <label>Jumlah Volume Kegiatan</label>
-                   <input type="text" name="txt_jumlahv" class="form-control" placeholder="jumlah volume kegiatan">
-              </div>
               <div class="form-group">
                    <label>Lampiran SK</label>
                      <input type="file" name="userfile">

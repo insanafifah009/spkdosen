@@ -11,6 +11,7 @@
      {
          parent::__construct();
 		$this->load->model('pendidikan_model');
+		$this->load->model('Model_dosen');
 		$this->load->model('unsur_model');
 		if (!$this->session->userdata('level')=='1') {
 			redirect('login');
@@ -59,7 +60,6 @@
 			$tempat = $this->input->post('txt_tempat');
 			$tanggal = $this->input->post('txt_tgl');
 			$satuanhasil = $this->input->post('txt_satuan');
-			$volume = $this->input->post('txt_jumlahv');
 			
 			$data['id_dosen'] = $dosen;
 			$data['unsur'] = '1';
@@ -68,7 +68,6 @@
 			$data['tempat'] = $tempat;
 			$data['tanggal'] = $tanggal;
 			$data['satuan_hasil'] = $satuanhasil;
-			$data['jumlah_volume'] = $volume;
 			$data['jumlah_ak'] = $angkaKredit;
 			$data['lampiran'] = $dokumen['file_name'];
 
@@ -96,5 +95,12 @@
 		$subkegiatan = $_GET['suburaian'];
 		$uraian = $this->pendidikan_model->getsubUraian($subkegiatan);
 		echo json_encode($uraian);
+	}
+
+	public function Cetak()
+	{
+		$data['identitas']=$this->Model_dosen->getIdentitas($this->session->userdata('id'))->row();
+		$data['pendidikan'] = $this->pendidikan_model->get_pendidikan();
+		$this->load->view('dosen/cetak/cetakPendikan', $data);
 	}
  } ?>

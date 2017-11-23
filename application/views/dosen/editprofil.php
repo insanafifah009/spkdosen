@@ -17,49 +17,52 @@
         <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary">
-            <div class="box-header with-border">
-            </div>
+            <div class="box-body with-border">
+              <form method="" action="" class="form-horizontal">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="">Nama</label>
+                  <div class="col-md-6">
+                    <input type="hidden" name="idDosen" value="<?php echo $identitas->id_dosen ?>">
+                    <input type="text" name="txt_nama" id="" class="form-control" required="" value="<?php echo $identitas->nama ?>"/>
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="">NIP</label>
+                  <div class="col-md-6">
+                    <input type="text" name="txt_nip" class="form-control" value="<?php echo $identitas->nip ?>" placeholder="NIP" />
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="">Pangkat/Golongan Ruang</label>
+                  <div class="col-md-6">
+                    <input type="text" name="txt_pangkat" class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="">Jabatan</label>
+                  <div class="col-md-6">
+                    <input type="text" name="txt_jabatan" id="" class="form-control " autocomplete="" placeholder="Jabatan" required="" />
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="">Unit Kerja</label>
+                  <div class="col-md-6">
+                    <input type="text" name="txt_unit" id="" class="form-control " required="" autocomplete="" placeholder="Unit Kerja" />   
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">&nbsp;</label>
+                  <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary btn-flat">SUBMIT</button>
+                  </div>
+                </div>
+              </form>
+          </div>
+
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="" action="" class="form-horizontal">
-<div class="form-group required">
-  <label class="col-sm-2 control-label" for="">Nama</label>
-  <div class="col-md-6">
-    <input type="text" name="txt_nama" id="" class="form-control " autocomplete="" placeholder="Nama" required="" />
-  </div>
-</div>
-<div class="form-group required">
-  <label class="col-sm-2 control-label" for="">NIP</label>
-  <div class="col-md-6">
-    <input type="text" name="txt_nip" id="" class="form-control nip" autocomplete="" placeholder="NIP" required="" />
-  </div>
-</div>
-<div class="form-group required">
-  <label class="col-sm-2 control-label" for="">Pangkat/Golongan Ruang</label>
-  <div class="col-md-6">
-    <input type="text" name="txt_pangkat" id="" class="form-control nid" autocomplete="" placeholder="Pangkat/golongan" required="" />
-  </div>
-</div>
-<div class="form-group required">
-  <label class="col-sm-2 control-label" for="">Jabatan</label>
-  <div class="col-md-6">
-    <input type="text" name="txt_jabatan" id="" class="form-control " autocomplete="" placeholder="Jabatan" required="" />
-  </div>
-</div>
-<div class="form-group required">
-  <label class="col-sm-2 control-label" for="">Unit Kerja</label>
-  <div class="col-md-6">
-    <input type="text" name="txt_unit" id="" class="form-control " required="" autocomplete="" placeholder="Unit Kerja" />   
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-sm-2 control-label">&nbsp;</label>
-  <div class="col-md-6">
-    <button type="submit" class="btn btn-primary btn-flat">SUBMIT</button>
-  </div>
-</div>
-</form>
+            
 </div>
 </div>
 </div>

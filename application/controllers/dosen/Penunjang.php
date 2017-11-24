@@ -60,7 +60,6 @@
       $data['tempat']= $this->input->post('txt_tempat');
       $data['tanggal']= $this->input->post('txt_tgl');
       $data['satuan_hasil'] = $this->input->post('txt_satuan');
-      $data['jumlah_volume']= $jumlah_volume;
       $data['jumlah_ak']= $jumlah_ak;
       $data['lampiran']= $dokumen['file_name'];
 
@@ -80,5 +79,14 @@
 		$uraian = $this->penunjang_model->getSubUraian($penunjang);
 		echo json_encode($uraian);
 	}
+  public function editPenunjang($tempat)
+  {
+    $data['editpenunjang']=$this->penunjang_model->ubahPenunjang($tempat)->row();
+    $data['penunjang']=$this->unsur_model->getUnsur();
+    $data['subUnsur']=$this->penunjang_model->get_penunjang();
+    $this->load->view('atribut/header');
+    $this->load->view('dosen/menudupak/tambah/editPenunjang',$data);
+    $this->load->view('atribut/footer');
+  }
 
  } ?>

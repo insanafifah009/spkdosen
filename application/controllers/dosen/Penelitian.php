@@ -59,7 +59,6 @@
 			$data['judul'] = $this->input->post('txt_judul');
 			$data['link']= $this->input->post('txt_link');
 			$data['satuan_hasil'] = $this->input->post('txt_satuan');
-			$data['jumlah_volume'] = $volume;
 			$data['lampiran']= $dokumen['file_name'];
 			$data['jumlah_ak']= $aKredit;
 
@@ -74,6 +73,16 @@
 
 
 		
+	}
+	
+	public function editPenelitian($tempat)
+	{
+		$data['editpenelitian']=$this->penelitian_model->ubahPenelitian($judul)->row();
+		$data['penelitian']=$this->unsur_model->getUnsur();
+		$data['subUnsur']=$this->penelitian_model->get_penelitian();
+		$this->load->view('atribut/header');
+		$this->load->view('dosen/menudupak/tambah/editPenelitian',$data);
+		$this->load->view('atribut/footer');
 	}
 
      public function getUraian()

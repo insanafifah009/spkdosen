@@ -82,5 +82,14 @@
 		$uraian = $this->pengajaran_model->getSubUraian($pengajaran);
 		echo json_encode($uraian);
 	}
+  public function editPengajaran($tempat)
+  {
+    $data['editpengajaran']=$this->pengajaran_model->ubahPengajaran($tempat)->row();
+    $data['pengajaran']=$this->unsur_model->getUnsur();
+    $data['subUnsur']=$this->pengajaran_model->get_pengajaran();
+    $this->load->view('atribut/header');
+    $this->load->view('dosen/menudupak/tambah/editPengajaran',$data);
+    $this->load->view('atribut/footer');
+  }
 
  } ?>

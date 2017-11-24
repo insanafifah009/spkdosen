@@ -60,6 +60,17 @@ class Pengajaran_model extends CI_model
 		$data =$this->db->query('select * from uraian_kegiatan where id_uraian=?', array($uraian));
 		return $data->result_array();
 	}
+	public function deletePengajaran($id){
+		$this->db->where('id_pengajaran',$id);
+		$this->db->delete('pengajaran');
+		if ($this->db->affected_rows() > 0){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
+
 }
 
 

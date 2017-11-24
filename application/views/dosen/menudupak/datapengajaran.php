@@ -43,9 +43,9 @@
                   <td><?php echo $pen['tahun_aka'];?></td>
                   <td><?php echo $pen['angka_kredit'];?></td>
                   <td><?php echo $pen['jumlah_ak'];?></td>
-                  <td>
-                    <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
-                    <a href="" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>
+                                   <td>
+                     <a href="<?php echo base_url('dosen/Pendidikan/editPengajaran/').$pen['id_pengajaran']?>" class="btn btn-warning btn-xs btn_edit_personil"><span class="fa fa-pencil"></span></a>
+                    <a href="<?php echo base_url('dosen/Menudupak/deletePengajaran/').$pen['id_pengajaran']?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin akan menghapus data?');"><span class="fa fa-trash"></span></a>
                   </td>
 
                 </tr>

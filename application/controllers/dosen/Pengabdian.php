@@ -61,7 +61,6 @@
       $data['tempat']= $this->input->post('txt_tempat');
       $data['tanggal']= $this->input->post('txt_tgl');
       $data['satuan_hasil'] = $this->input->post('txt_satuan');
-      $data['jumlah_volume']= $jumlah_volume;
       $data['jumlah_ak']= $jumlah_ak;
       $data['lampiran']= $dokumen['file_name'];
 
@@ -81,5 +80,14 @@
 		$uraian = $this->pengabdian_model->getSubUraian($pengabdian);
 		echo json_encode($uraian);
 	}
+  public function editPengabdian($tempat)
+  {
+    $data['editpengabdian']=$this->pengabdian_model->ubahPengabdian($tempat)->row();
+    $data['pengabdian']=$this->unsur_model->getUnsur();
+    $data['subUnsur']=$this->pengabdian_model->get_pengabdian();
+    $this->load->view('atribut/header');
+    $this->load->view('dosen/menudupak/tambah/editPengabdian',$data);
+    $this->load->view('atribut/footer');
+  }
 
  } ?>

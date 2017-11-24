@@ -60,6 +60,16 @@ class Pengabdian_model extends CI_model
 		$data =$this->db->query('select * from uraian_kegiatan where id_uraian=?', array($uraian));
 		return $data->result_array();
 	}
+	public function deletePengabdian($id){
+		$this->db->where('id_pengabdian',$id);
+		$this->db->delete('pengabdian');
+		if ($this->db->affected_rows() > 0){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
 }
 
 

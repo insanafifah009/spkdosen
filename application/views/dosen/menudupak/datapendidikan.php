@@ -31,6 +31,10 @@
                   <th>Tempat/Instansi</th>
                   <th>Tanggal</th>
                   <th>Satuan Hasil</th>
+<<<<<<< HEAD
+                  <th>Angka Kredit</th>
+=======
+>>>>>>> 6e6d97addd1cb8342e9250b2bc98fe6335762e2c
                   <th>Jumlah Angka Kredit</th>
                   <th>Aksi</th>
                 </tr>
@@ -45,7 +49,12 @@
                   <td><?php echo $pend['tempat'];?></td>
                   <td><?php echo $pend['tanggal'];?></td>
                   <td><?php echo $pend['satuan_hasil'];?></td>
+<<<<<<< HEAD
+                  <td><?php echo $pend['angka_kredit'];?></td>
+                  <td><?php echo $pend['jumlah_ak'];?></td>
+=======
                   <td><span class="badge bg-green"><?php echo $pend['jumlah_ak'];?> </span></td>
+>>>>>>> 6e6d97addd1cb8342e9250b2bc98fe6335762e2c
                   <td>
                      <a href="<?php echo base_url('dosen/Pendidikan/editPendidikan/').$pend['id_pendidikan']?>" class="btn btn-warning btn-xs btn_edit_personil"><span class="fa fa-pencil"></span></a>
                     <a href="<?php echo base_url('dosen/Menudupak/deletePendidikan/').$pend['id_pendidikan']?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin akan menghapus data?');"><span class="fa fa-trash"></span></a>

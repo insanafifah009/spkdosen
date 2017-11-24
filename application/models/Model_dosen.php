@@ -24,6 +24,18 @@ class Model_dosen extends CI_model {
 		}
 		return $unsur;
 	}
+
+	public function editDosen($id)
+	{
+		$data = $this->db->query("SELECT * from dosen where id_dosen=?", array($id));
+		return $data;
+	}
+	public function updatedatadosen($id,$data)
+	{
+		$this->db->query("update dosen set nama=?,nip=?,pangkat=?,golongan=?,jabatan=?,unit=? where id_dosen=?",array($data['nama'],$data['nip'],$data['pangkat'],$data['golongan'],$data['jabatan'],$data['unit'],$id));
+		unset($id,$data);
+	}
+
 	public function get_sub_pendidikan($id){
 		$unsur = "<option value='0'>Pilih Sub Kegiatan</option>";
 		$this->db->select('id_sub,nama_sub');

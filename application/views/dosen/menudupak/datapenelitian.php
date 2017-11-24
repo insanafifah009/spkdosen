@@ -28,7 +28,6 @@
                   <th>Judul Penelitian</th>
                   <th>Link</th>
                   <th>Satuan Hasil</th>
-                  <th>Jumlah Volume Kegiatan</th>
                   <th>Angka Kredit</th>
                   <th>Jumlah Angka Kredit</th>
                   <th>Aksi</th>
@@ -42,12 +41,11 @@
                   <td><?php echo $pen['judul'];?></td>
                   <td><?php echo $pen['link'];?></td>
                   <td><?php echo $pen['satuan_hasil'];?></td>
-                  <td><?php echo $pen['jumlah_volume'];?></td>
                   <td><?php echo $pen['angka_kredit'];?></td>
                   <td><?php echo $pen['jumlah_ak'];?></td>
                   <td>
-                    <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
-                    <a href="" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>
+                     <a href="<?php echo base_url('dosen/Penelitian/editPenelitian/').$pen['id_penelitian']?>" class="btn btn-warning btn-xs btn_edit_personil"><span class="fa fa-pencil"></span></a>
+                    <a href="<?php echo base_url('dosen/Menudupak/deletePenelitian/').$pen['id_penelitian']?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin akan menghapus data?');"><span class="fa fa-trash"></span></a>
                   </td>
 
                 </tr>

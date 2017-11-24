@@ -30,7 +30,6 @@
                   <th>Tempat/Instansi</th>
                   <th>Tanggal</th>
                   <th>Satuan Hasil</th>
-                  <th>Jumlah Volume Kegiatan</th>
                   <th>Angka Kredit</th>
                   <th>Jumlah Angka Kredit</th>
                   <th>Aksi</th>
@@ -44,7 +43,6 @@
                   <td><?php echo $pend['tempat'];?></td>
                   <td><?php echo $pend['tanggal'];?></td>
                   <td><?php echo $pend['satuan_hasil'];?></td>
-                  <td><?php echo $pend['jumlah_volume'];?></td>
                   <td><?php echo $pend['angka_kredit'];?></td>
                   <td><?php echo $pend['jumlah_ak'];?></td>
                   <td>

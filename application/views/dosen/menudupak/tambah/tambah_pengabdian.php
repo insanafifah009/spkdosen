@@ -54,10 +54,6 @@
                    <input type="text" name="txt_satuan" id="exampleInputFile" class="form-control">
               </div>
               <div class="form-group required">
-                   <label  >Jumlah Volume Kegiatan</label>
-                   <input type="text" name="txt_jumlahv" id="exampleInputFile" class="form-control">
-              </div>
-              <div class="form-group required">
                 <label  >Lampiran SK</label>
                 <input type="file" name="userfile" class="form-control">
               </div>

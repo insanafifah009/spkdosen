@@ -133,6 +133,19 @@
 
         <li class="treeview">
           <a href="#">
+            <i class="fa fa-share"></i> <span>Lihat Data Dosen</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url('admin/Lihatdosen') ?>"><i class="fa fa-circle-o"></i> Data Dosen </a></li>
+           
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
             <i class="fa fa-th-large"></i> <span>Menu Master</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -150,8 +163,8 @@
           </a>
         </li> -->
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Data Pengajuan Tervalidasi</span>
+          <a href="<?php echo base_url('admin/pengajuan') ?>">
+            <i class="fa fa-user"></i> <span>Data Pengajuan Tervalidasi</span>
           </a>
         </li>
       </ul>

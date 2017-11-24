@@ -29,7 +29,6 @@
                   <th>Nama</th>
                   <th>Judul Penelitian</th>
                   <th>Link</th>
-                  <th>Volume</th>
                   <th><i class="glyphicon glyphicon-edit"></i></th>
                 </tr>
                 </thead>
@@ -40,7 +39,7 @@
                     <td><?php echo $row['nama'] ?></td>
                     <td><?php echo $row['judul'] ?></td>
                     <td><?php echo $row['link'] ?></td>
-                    <td><?php echo $row['jumlah_volume'] ?></td>
+                    
                     <td>
                       <a href="<?php echo base_url('reviewer/Penelitian/review/'.$row['id_penelitian']) ?>" class="btn btn-info btn-flat btn-xs"><i class="glyphicon glyphicon-check"></i> Review Jurnal</a>
                     </td>

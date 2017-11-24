@@ -68,7 +68,6 @@
 			$data['tempat'] = $tempat;
 			$data['tanggal'] = $tanggal;
 			$data['satuan_hasil'] = $satuanhasil;
-			$data['jumlah_volume'] = $volume;
 			$data['jumlah_ak'] = $angkaKredit;
 			$data['lampiran'] = $dokumen['file_name'];
 

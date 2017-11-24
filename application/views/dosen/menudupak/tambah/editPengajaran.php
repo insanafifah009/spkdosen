@@ -1,10 +1,10 @@
-<div class="content-wrapper">
+ <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Data Pendidikan</h1>
+      <h1><i class="glyphicon glyphicon-pencil"></i> Data Pengajaran</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">DATA PENDIDIKAN</li>
+        <li class="active">EDIT DATA PENGAJARAN</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -16,22 +16,19 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <!-- /.box-header -->
-            <div class="box-header">
-              <h2 class="box-title">Tambah Data Pendidikan</h2>
-            </div>
             <div class="box-body">
-              <?= form_open_multipart('dosen/Pendidikan/simpanPendidikan',['class'=>'form-vertical'])?>
+              <form method="POST" action="<?php echo base_url('dosen/Pengajaran/simpanPengajaran')?>" class="form-vertical">
                <div class="form-group">
-                  <label>Sub Kegiatan Pendidikan</label>
-                  <select class="form-control" name="subPendidikan" id="subPendidikan">
-                    <option>Pilih Sub Kategori Pendidikan</option>
+                  <label>Sub Kegiatan Pengajaran</label>
+                  <select class="form-control" name="subPengajaran" id="subPengajaran">
+                    <option>Pilih Sub Kategori Pengajaran</option>
                     <?php foreach ($subUnsur as $row): ?>
                       <option value="<?php echo $row['id_sub'] ?>"><?php echo $row['nama_sub'] ?></option>
                     <?php endforeach ?>
                   </select>
               </div>
               <div class="form-group">
-                  <label>Uraian Pendidikan</label>
+                  <label>Uraian Pengajaran</label>
                   <select class="form-control" name="cb_uraian" id="cb_uraian">
                   </select>
               </div>
@@ -49,12 +46,12 @@
               </div>
               <div class="form-group">
                    <label>Lampiran SK</label>
-                     <input type="file" name="userfile">
+                     <input type="file" id="t" name="userfile">
               </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-flat"><i class="glyphicon glyphicon-save"></i> Simpan</button>
+              <button type="submit" class="btn btn-primary btn-flat"><i class="glyphicon glyphicon-refresh"></i> Update</button>
             </div>
-          <?= form_close();?>
+          </form>
             </div>
             <!-- form start -->
 
@@ -67,12 +64,12 @@
 <!-- /.box -->
 <script type="text/javascript">
   $(document).ready(function(){
-    $('#subPendidikan').change(function() {
-      var pendidikan = $('#subPendidikan').val();
+    $('#subPengajaran').change(function() {
+      var pengajaran = $('#subPengajaran').val();
       $.ajax({
-        url:'<?php echo base_url('dosen/Pendidikan/getUraian'); ?>',
+        url:'<?php echo base_url('dosen/Pengajaran/getUraian'); ?>',
         type: 'GET',
-        data: 'suburaian='+pendidikan,
+        data: 'pengajaran='+pengajaran,
         dataType: 'json',
         success: function(data){
           var uraian = `<select id="cb_uraian" name="cb_uraian">

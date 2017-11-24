@@ -30,7 +30,6 @@
                   <th>Tempat</th>
                   <th>Tanggal</th>
                   <th>Satuan Hasil</th>
-                  <th>Jumlah Volume Kegiatan</th>
                   <th>Angka Kredit</th>
                   <th>Jumlah Angka Kredit</th>
                   <th>Aksi</th>
@@ -46,12 +45,11 @@
                   <td><?php echo $pend['tempat'];?></td>
                   <td><?php echo $pend['tanggal'];?></td>
                   <td><?php echo $pend['satuan_hasil'];?></td>
-                  <td><?php echo $pend['jumlah_volume'];?></td>
                   <td><?php echo $pend['angka_kredit'];?></td>
                   <td><?php echo $pend['jumlah_ak'];?></td>
-                  <td>
-                    <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
-                    <a href="" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>
+                                    <td>
+                     <a href="<?php echo base_url('dosen/Pengabdian/editPengabdian/').$pend['id_pengabdian']?>" class="btn btn-warning btn-xs btn_edit_personil"><span class="fa fa-pencil"></span></a>
+                    <a href="<?php echo base_url('dosen/Menudupak/deletePengabdian/').$pend['id_pengabdian']?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin akan menghapus data?');"><span class="fa fa-trash"></span></a>
                   </td>
 
                 </tr>

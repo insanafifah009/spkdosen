@@ -51,6 +51,38 @@ class Menudupak extends CI_Controller {
 		}
 
 	}
+	public function deletePengajaran($id){
+		$result =$this->pengajaran_model->deletePengajaran($id);
+		if($result>=1){
+			redirect('dosen/Menudupak');
+		}
+
+	}
+
+public function deletePenelitian($id){
+		$result =$this->penelitian_model->deletePenelitian($id);
+		if($result>=1){
+			redirect('dosen/Menudupak');
+		}
+
+	}
+
+public function deletePengabdian($id){
+		$result =$this->pengabdian_model->deletePengabdian($id);
+		if($result>=1){
+			redirect('dosen/Menudupak');
+		}
+
+	}
+
+public function deletePenunjang($id){
+		$result =$this->penunjang_model->deletePenunjang($id);
+		if($result>=1){
+			redirect('dosen/Menudupak');
+		}
+
+	}
+
 	
 	public function getJudul($judul)
 	{

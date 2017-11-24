@@ -3,21 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class InputDosen extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	public function __construct()
+     {
+         parent::__construct();
+		if (!$this->session->userdata('level')=='1') {
+			redirect('login');
+		}
+		$this->load->model('Model_dosen','mdl');
+     }
+
 	public function index()
 	{
 		$this->load->view('atribut/header');
@@ -26,8 +20,9 @@ class InputDosen extends CI_Controller {
 	}
 	public function edit()
 	{
+		$data['profile'] = $this->mdl->editDosen($this->session->userdata('id'))->row();
 		$this->load->view('atribut/header');
-		$this->load->view('dosen/editprofil');
+		$this->load->view('dosen/editprofil', $data);
 		$this->load->view('atribut/footer');
 	}
 	public function ubah()
@@ -36,5 +31,13 @@ class InputDosen extends CI_Controller {
 		$this->load->view('pages/ubahpass');
 		$this->load->view('atribut/footer');
 	}
-	
+	public function updatedatadosen()
+	{
+		$data['nama']=$this->input->post('txt_nama');
+		$data['nip']=$this->input->post('txt_nip');
+		$data['pangkat']=$this->input->post('txt_pangkat');
+		$data['golongan']=$this->input->post('txt_gol');
+		$data['jabatan']=$this->input->post('txt_jabatan');
+		$data['unit']=$this->input->post('txt_unit');
+	}
 }

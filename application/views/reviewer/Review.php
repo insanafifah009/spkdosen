@@ -57,9 +57,9 @@
 							<div class="col-sm-6">
 								<h4>C. Edisi</h4>
 							</div>
-							<div class="col-sm-6">
+							<!-- <div class="col-sm-6">
 								<h4>: <?php echo $reviewjurnal->jumlah_volume ?></h4>
-							</div>
+							</div> -->
 						</div>
 						<div class="row">
 							<div class="col-sm-6">

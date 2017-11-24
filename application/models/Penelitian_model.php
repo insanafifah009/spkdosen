@@ -29,6 +29,34 @@ class Penelitian_model extends CI_model
 		return $query->result_array();
 	}
 
+	public function ubahPenelitian($judul){
+		$this->db->select('*');
+		$this->db->from('penelitian');
+		$this->db->where('judul',$judul);
+		$query = $this->db->get();
+		return $query;
+	}
+
+	public function editPenelitian($tabel,$data,$param){
+		$this->db->where('id_penelitian',$param);
+		$this->db->update($tabel,$data);
+		if ($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function deletePenelitian($id){
+		$this->db->where('id_penelitian',$id);
+		$this->db->delete('penelitian');
+		if ($this->db->affected_rows() > 0){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
+
 	public function reviewJurnal($id)
 	{
 		$this->db->select('*');

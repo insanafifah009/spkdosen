@@ -1,8 +1,8 @@
-  <div class="content-wrapper">
+data  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Diri <?php echo $this->session->userdata('username'); ?>
+        Data Dosen
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -39,6 +39,7 @@
                   <td></td>
                   <td></td>
                   <td>
+                  	<a href="" class="btn btn-xs btn-success"><i class="fa fa-level-down"></i> Validasi Akun </a>
                     <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
                     <a href="" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>
                   </td>

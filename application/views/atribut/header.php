@@ -123,11 +123,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">DOSEN</li>
-        <li class="treeview">
-                  <a href="<?php echo base_url('dosen/Dosen'); ?> ">
-                    <i class="fa fa-dashboard"></i> <span>Beranda</span>
-                  </a>
-        </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Profil Dosen</span>

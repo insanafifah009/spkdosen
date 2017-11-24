@@ -11,24 +11,7 @@ class Pendidikan_model extends CI_model
 	{
 		parent::__construct();
 	}
-	// public function addNip($data){
-
-	// 	$result = $this->db->insert('pendidikan',$data);
-	// 	return $result;
-	// }
-	// public function getNip(){
-	// 	$this->db->select('*');
-	// 	$this->db->from('pendidikan');
-	// 	$query=$this->db->get();
-	// 	return $query->result_array();
-	// }
-	// public function getNip_id($nip){
-	// 	$this->db->select('*');
-	// 	$this->db->from('pendidikan');
-	// 	$this->db->where('nip',$nip);
-	// 	$query = $this->db->get();
-	// 	return $query;
-	// }
+	
 	public function addTempat($data){
 
 		$result = $this->db->insert('pendidikan',$data);

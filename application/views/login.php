@@ -27,11 +27,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?php echo base_url()?>assets/index2.html"><b>SPK</b>Dosen</a>
+    <a href="<?php echo base_url('Login')?>"><b>SPK</b>Dosen</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Silahkan login terlebih dahulu</p>
+    <div class="alert alert-danger" style="display: none;"></div>
 
     <form action="<?php echo base_url('index.php/login/authentification')?>" method="post">
       <div class="form-group has-feedback">
@@ -77,6 +78,13 @@
       radioClass: 'iradio_square-blue',
       increaseArea: '20%' // optional
     });
+  });
+</script>
+<script type="text/javascript">
+  $(function(){
+    <?php if ($this->session->flashdata('gagal')): ?>
+    $('.alert-danger').html('<?php echo $this->session->flashdata('gagal'); ?>').fadeIn();
+    <?php endif; ?>
   });
 </script>
 </body>

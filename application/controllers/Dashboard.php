@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends CI_Controller {
 
 
-	function __construct(){
+	public function __construct(){
 		parent::__construct();
-		if (!$this->session->userdata('level')=='1') {
+		if (!$this->session->userdata('level')=='1' and (!$this->$this->session->userdata('username'))) {
 			redirect('login');
 		}
 	}
@@ -17,4 +17,5 @@ class Dashboard extends CI_Controller {
 		$this->load->view('dosen/main');
 		$this->load->view('atribut/footer');
 	}
+	
 }

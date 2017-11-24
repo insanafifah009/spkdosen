@@ -2,9 +2,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>Data Pendidikan</h1>
+      <small><?php echo $this->session->userdata('username') ?></small>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">DATA PENDIDIKAN</li>
+        <li class="active">DATA PENDIDIKAN </li>
       </ol>
     </section>
     <!-- Main content -->
@@ -14,9 +15,9 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-              <h2 class="box-title">Data Pendidikan <?php echo $this->session->userdata('username') ?></h2>
-              <a href="<?php echo base_url('dosen/Pendidikan/tambahPendidikan') ?>" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Pendidikan</a>
+            <div class="box-header with-border">
+              <a href="<?php echo base_url('dosen/Pendidikan/Cetak') ?>" class="btn btn-success btn-flat"><i class="fa fa-print"></i> Cetak Data</a>
+              <a href="<?php echo base_url('dosen/Pendidikan/tambahPendidikan') ?>" class="btn btn-info btn-flat pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Unsur Pendidikan</a>
             </div>
             
             <!-- /.box-header -->
@@ -30,21 +31,30 @@
                   <th>Tempat/Instansi</th>
                   <th>Tanggal</th>
                   <th>Satuan Hasil</th>
+<<<<<<< HEAD
                   <th>Angka Kredit</th>
+=======
+>>>>>>> 6e6d97addd1cb8342e9250b2bc98fe6335762e2c
                   <th>Jumlah Angka Kredit</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
+                  <?php $jumlahAkhir=0; ?>
                    <?php foreach ($pendidikan as $pend):?>
+                    <?php $jumlahAkhir+=$pend['jumlah_ak']; ?>
                 <tr>
                   <td><?php echo $pend['id_pendidikan'] ?></td>
                   <td><?php echo $pend['nama_uraian'];?></td>
                   <td><?php echo $pend['tempat'];?></td>
                   <td><?php echo $pend['tanggal'];?></td>
                   <td><?php echo $pend['satuan_hasil'];?></td>
+<<<<<<< HEAD
                   <td><?php echo $pend['angka_kredit'];?></td>
                   <td><?php echo $pend['jumlah_ak'];?></td>
+=======
+                  <td><span class="badge bg-green"><?php echo $pend['jumlah_ak'];?> </span></td>
+>>>>>>> 6e6d97addd1cb8342e9250b2bc98fe6335762e2c
                   <td>
                      <a href="<?php echo base_url('dosen/Pendidikan/editPendidikan/').$pend['id_pendidikan']?>" class="btn btn-warning btn-xs btn_edit_personil"><span class="fa fa-pencil"></span></a>
                     <a href="<?php echo base_url('dosen/Menudupak/deletePendidikan/').$pend['id_pendidikan']?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin akan menghapus data?');"><span class="fa fa-trash"></span></a>
@@ -52,8 +62,13 @@
 
                 </tr>
                 <?php endforeach;?>
-                
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="5">Jumlah</td>
+                    <td colspan="2"><?php echo $jumlahAkhir ?></td>
+                  </tr>
+                </tfoot>
                 </table>
             </div>
           </div>

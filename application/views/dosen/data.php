@@ -10,44 +10,48 @@
       </ol>
     </section>
 
+<<<<<<< HEAD
+=======
+
+    <!-- Main content -->
+>>>>>>> 6e6d97addd1cb8342e9250b2bc98fe6335762e2c
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="exampleb 2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Nama</th>
-                  <th>NIP</th>
-                  <th>Pangkat/Golongan Ruang</th>
-                  <th>Jabatan Fungsional</th>
-                  <th>Unit Kerja</th>
-                  <th>Aksi</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <a href="" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
-                    <a href="" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>
-                  </td>
 
-                </tr>
-                
-                </tbody>
-              </table>
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url('img/logo.jpg') ?>" alt="User profile picture">
+
+              <h3 class="profile-username text-center"><?php echo $identitas->nama ?></h3>
+
+              <p><?php echo $identitas->nip ?></p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Unit</b> <a class="pull-right"><?php echo $identitas->unit ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Jabatan</b> <a class="pull-right"><?php echo $identitas->jabatan ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Golongan</b> <a class="pull-right"><?php echo $identitas->golongan ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Status Akun</b><a class="pull-right"><p class="text-muted text-center"><?php if ($identitas->isActive=='0'){ ?>
+                <?php echo 'Belum dikonfirmasi' ?>
+              <?php } else if ($identitas->isActive=='1'){ ?>
+                <?php echo 'Telah dikonfirmasi'; }?>
+              </p></a>
+                </li>
+              </ul>
+
+              <a href="<?php echo base_url('dosen/inputDosen/edit') ?>" class="btn btn-primary btn-block"><b>Lengkapi Data Diri</b></a>
             </div>
             <!-- /.box-body -->
           </div>
+          <!-- /.box -->
+        </div>
+      </div>
           <!-- /.box -->

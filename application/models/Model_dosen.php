@@ -11,6 +11,12 @@ class Model_dosen extends CI_model {
 	{
 		parent::__construct();
 	}
+
+	public function getIdentitas($id)
+	{
+		$identitas = $this->db->query("SELECT * from dosen where id_dosen=?",array($id));
+		return $identitas;
+	}
 	
 	public function get_unsur_pendidikan($id){
 		$unsur = "<option value='0'>Pilih Unsur Kegiatan</option>";

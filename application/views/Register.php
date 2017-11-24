@@ -41,33 +41,6 @@
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-          <select class="form-control" name="fakultas" id="fakultas">
-              <option value="">Pilih Fakultas</option>
-              <?php foreach ($fakultas as $row):?>
-                <option value="<?php echo $row['id_fak']?>"><?php echo $row['nama_fak']?></option>
-                <?php endforeach;?>
-          </select>
-      </div>
-      <div class="form-group has-feedback">
-          <select class="form-control" name="jurusan" id="jurusan">
-              <option value="">Pilih Jurusan</option>
-          </select>
-      </div>
-        <div class="form-group has-feedback">
-            <select class="form-control" name="bidangilmu" id="bidangilmu">
-                <option value="">Pilih Bidang keilmuan</option>
-            </select>
-        </div>
-        <div class="form-group has-feedback">
-          <select class="form-control" name="jabatan">
-              <option value="0">Pilih Jabatan</option>
-              <option value="1">Asisten Ahli</option>
-              <option value="2">Lektor</option>
-              <option value="3">Lektor Kepala</option>
-              <option value="4">Profesor</option>
-            </select>
-        </div>
-      <div class="form-group has-feedback">
           <input type="text" class="form-control" placeholder="Username" name="username">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
@@ -79,13 +52,16 @@
           <input type="password" class="form-control" placeholder="Retype password" name="password">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
+      <div class="form-group has-feedback">
+        <select name="levelPengguna" class="form-control">
+          <option value="0">Pilih level Pengguna</option>
+          <option value="1">Dosen</option>
+          <option value="2">Reviewer</option>
+        </select>
+      </div>
       <div class="row">
         <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
               <a href="<?php echo base_url('login') ?>" class="btn btn-info btn-flat">Login</a>
-            </label>
-          </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
@@ -103,61 +79,6 @@
 <script src="<?php echo base_url()?>assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url()?>assets/bootstrap/js/bootstrap.min.js"></script>
-<!-- iCheck -->
-<script src="<?php echo base_url()?>assets/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
-</script>
-<script>
-    $(function(){
-        $('#fakultas').change(function(){
-          var fakultas = $('#fakultas').val();
-          $.ajax({
-            url: '<?php echo base_url('login/getBidang') ?>',
-            type:'GET',
-            data: 'bidang='+fakultas,
-            dataType: 'json',
-            success: function(data){
-              var bidang = `<select id="bidangilmu" name="bidangilmu">
-          <option value="">Pilih Bidang Ilmu</option>`;
-          for (var i = 0; i < data.length; i++) {
-            bidang+='<option value="'+data[i].idbidang+'">'+data[i].nama_bidang+'</option>';
-          }
-          bidang+='</select>';
-          $('#bidangilmu').html(bidang);
-            }
-          });
-        });
-    });
-</script>
-<script>
-    $(function(){
-        $('#fakultas').change(function(){
-          var fakultas = $('#fakultas').val();
-          $.ajax({
-            url: '<?php echo base_url('login/getJurusan') ?>',
-            type:'GET',
-            data: 'bidang='+fakultas,
-            dataType: 'json',
-            success: function(data){
-              var bidang = `<select id="jurusan" name="jurusan">
-          <option value="">Pilih Jurusan</option>`;
-          for (var i = 0; i < data.length; i++) {
-            bidang+='<option value="'+data[i].id_jur+'">'+data[i].nama_jur+'</option>';
-          }
-          bidang+='</select>';
-          $('#jurusan').html(bidang);
-            }
-          });
-        });
-    });
-</script>
 <script type="text/javascript">
   <?php if ($this->session->flashdata('sukses')): ?>
   $('.alert-success').html('<?php echo $this->session->flashdata('sukses'); ?>').fadeIn();

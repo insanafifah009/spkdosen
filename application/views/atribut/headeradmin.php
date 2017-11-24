@@ -18,11 +18,11 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/skins/_all-skins.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datepicker/datepicker3.css') ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.css') ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/datatables/dataTables.bootstrap.css') ?>">
   <!-- jQuery 2.2.3 -->
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/dataTables.bootstrap.css') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/plugins/datatables/dataTables.bootstrap.js') ?>"></script>
 <!-- Bootstrap 3.3.6 -->
 <script type="text/javascript" src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <!-- AdminLTE App -->

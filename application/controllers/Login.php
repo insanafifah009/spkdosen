@@ -72,21 +72,18 @@ class Login extends CI_Controller {
     public function daftarReviewer()
     {
         $this->form_validation->set_rules('nama', 'Nama kurang', 'required|min_length[5]|max_length[50]');
-        $this->form_validation->set_rules('fakultas', 'Fakultas belum dipilih', 'required');
-        $this->form_validation->set_rules('jabatan', 'Jabatan belum dipilih', 'required');
-        $this->form_validation->set_rules('bidangilmu', 'Bidang ilmu belum dipilih', 'required');
         $this->form_validation->set_rules('username', 'Username kurang', 'required|min_length[5]');
         $this->form_validation->set_rules('password', 'Password Kurang', 'required|min_length[8]');
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('Register');
         } else {
             $data['nama'] = $this->input->post('nama');
-            $data['bidang'] = $this->input->post('bidangilmu');
-            $data['jurusan'] = $this->input->post('jurusan');
-            $data['jabatan'] = $this->input->post('jabatan');
+            $data['bidang'] = 1;
+            $data['jurusan'] = 1;
+            $data['jabatan'] = 1;
             $data['username'] = $this->input->post('username');
             $data['password'] = sha1($this->input->post('password'));
-            $data['level'] = '2';
+            $data['level'] = $this->input->post('levelPengguna');
             $this->logg->newReviewer($data);
             $this->session->set_flashdata('sukses', 'Data Berhasil diregistrasi.\nSilahkan Login untuk melakukan review jurnal');
             redirect('login/Register','refresh');

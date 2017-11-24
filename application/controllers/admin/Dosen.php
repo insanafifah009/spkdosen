@@ -51,7 +51,8 @@ class Dosen extends CI_Controller
     			'jabatan'=>$this->input->post('jabatan'),
     			'unit'=>$this->input->post('unitKerja'),
     			'id_jur'=>$this->input->post('jurusan'),
-    			'foto'=>$image['file_name'],
+    			'foto'=>$this->input->post('nip')
+                .$image['file_name'],
     			'username'=>'demo',
     			'password' =>'demo',
     			'level'=>'1');

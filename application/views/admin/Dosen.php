@@ -13,7 +13,7 @@
     			<a class="btn btn-primary btn-flat pull-right" href="<?php echo base_url('admin/Dosen/Tambah') ?>"><i class="glyphicon glyphicon-plus-sign"></i> Tambah</a>
     		</div>
     		<div class="box-body">
-    			<table id="tabeldosen" class="table table-bordered table-hover">
+    			<table id="tabeldosen" class="table table-bordered table-hover table-responsive">
     				<thead>
     					<tr>
     						<td>NIP</td>

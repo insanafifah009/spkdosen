@@ -9,16 +9,9 @@
         <li class="active">Daftar Dosen</li>
       </ol>
     </section>
-
-<<<<<<< HEAD
-=======
-
-    <!-- Main content -->
->>>>>>> 6e6d97addd1cb8342e9250b2bc98fe6335762e2c
     <section class="content">
       <div class="row">
-        <div class="col-xs-12">
-
+        <div class="col-xs-3">
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
